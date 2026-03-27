@@ -1,330 +1,142 @@
 # MikroTik Internet Service Address Lists Exporter
 
+[![Release](https://img.shields.io/github/v/release/didimozg/mikrotik-internet-address-lists?display_name=tag)](https://github.com/didimozg/mikrotik-internet-address-lists/releases)
+[![CI](https://img.shields.io/github/actions/workflow/status/didimozg/mikrotik-internet-address-lists/ci.yml?branch=main&label=CI)](https://github.com/didimozg/mikrotik-internet-address-lists/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/didimozg/mikrotik-internet-address-lists)](./LICENSE)
+
+Russian documentation: [README_RU.md](./README_RU.md).
+
+Python utility that collects IP ranges and DNS-derived addresses for popular Internet services and generates MikroTik RouterOS `.rsc` import files.
+
 > [!IMPORTANT]
-> Дисклеймер: этот проект и состав адресных списков сформированы автором под личные предпочтения, личную логику маршрутизации и личные сценарии использования VPN/маркировки трафика.
-> Это не официальный продукт Google, Meta, Telegram, OpenAI, GitHub, Microsoft, VK, TMDB или Let's Encrypt.
-> Списки не гарантируют полноту, минимальность или абсолютную точность для любой сети и перед использованием в production их нужно проверять под свои задачи.
+> This project reflects the maintainer's own routing, VPN, and traffic-marking preferences.
+> It is not an official product of Google, Meta, Telegram, OpenAI, GitHub, Microsoft, VK, TMDB, or Let's Encrypt.
+> Validate the generated lists in your own environment before using them in production.
 
-Python-скрипт, который собирает IP-диапазоны и DNS-адреса популярных интернет-сервисов и формирует готовые `.rsc`-файлы для импорта в MikroTik RouterOS.
+## Features
 
-Скрипт умеет:
-- собирать один общий `.rsc` со всеми `address-list`
-- собирать отдельные `.rsc` по каждому `address-list`
-- собирать только выбранный список, например только `t_telegram`
-- удалять старые записи по имени `address-list` перед добавлением новых
-- убирать дубли, вложенные сети и объединять соседние подсети
-- использовать официальные источники там, где они есть, и community GitHub-источники там, где официальных статических диапазонов нет
+- build one combined `.rsc` file with all managed address lists
+- build separate `.rsc` files per service list
+- generate only selected lists when needed
+- flush existing MikroTik entries by `address-list` name before reimport
+- deduplicate, normalize, and aggregate adjacent networks
+- combine official sources with community sources where official static ranges do not exist
 
-## Поддерживаемые `address-list`
+## Supported Address Lists
 
-| Address-list | Назначение |
+| Address list | Purpose |
 | --- | --- |
 | `g_Google` | Google |
-| `m_Meta` | Meta, Facebook, Instagram и связанные сервисы |
+| `m_Meta` | Meta, Facebook, Instagram, and related services |
 | `z_LE` | Let's Encrypt |
 | `m_tmbd` | TMDB / The Movie Database |
 | `t_telegram` | Telegram |
 | `y_YouTube` | YouTube |
 | `i_chatgpt` | ChatGPT / OpenAI |
 | `i_GitHub_Copilot` | GitHub Copilot |
-| `i_VSCode_Ext` | Visual Studio Code Marketplace и скачивание расширений |
-| `v_VK` | VK и связанные сервисы экосистемы |
+| `i_VSCode_Ext` | Visual Studio Code Marketplace and extension downloads |
+| `v_VK` | VK and related ecosystem services |
 
-## Что делает скрипт
+## How It Works
 
-Сценарий работы такой:
+1. The script pulls official JSON or `whois` data where available.
+2. For services without official static ranges, it resolves domains through DNS over HTTPS.
+3. Community GitHub sources can be used to enrich coverage with CIDRs, host lists, and ready-made MikroTik feeds.
+4. The collected networks are normalized, deduplicated, stripped of nested subnets, and aggregated where safe.
+5. The final result is exported as RouterOS-compatible `.rsc` files.
 
-1. Скрипт забирает диапазоны из официальных JSON Google и через `whois` собирает Meta.
-2. Для сервисов без официального статического списка IP он резолвит домены через DNS over HTTPS.
-3. Дополнительно он может усиливать покрытие community-источниками из GitHub:
-   - CIDR-списки
-   - готовые MikroTik `.rsc`
-   - host/domain lists
-4. После этого он:
-   - нормализует сети
-   - удаляет дубли
-   - удаляет вложенные подсети
-   - агрегирует соседние сети, если это не расширяет фактическое покрытие
-5. На выходе формирует RouterOS-совместимые `.rsc`.
+## Requirements
 
-## Почему списки могут отличаться от запуска к запуску
+- Python 3.10+
+- outbound Internet access
+- MikroTik RouterOS for `.rsc` import
+- no third-party Python dependencies
 
-Некоторые сервисы публикуют официальные диапазоны, а некоторые нет. Поэтому часть списков строится из live DNS snapshot и community-источников.
+## Quick Start
 
-Это значит:
-- результат может немного меняться между запусками
-- CDN и edge-ноды могут меняться
-- один и тот же IP может использоваться несколькими сервисами
-- некоторые списки заведомо шире, чем "только один сервис"
+By default, the script generates:
 
-Именно поэтому в начале README есть дисклеймер.
+- `internet_mikrotik_import.rsc`
+- per-list files in `internet_mikrotik_import_lists/`
 
-## Требования
-
-- Python 3.10+  
-- внешний доступ к интернету  
-- MikroTik RouterOS для импорта `.rsc`  
-- сторонние Python-библиотеки не нужны, используется только standard library
-
-## Быстрый старт
-
-По умолчанию скрипт создаёт:
-- общий файл `internet_mikrotik_import.rsc`
-- отдельные файлы по каждому списку в каталоге `internet_mikrotik_import_lists`
-
-Запуск:
+Run:
 
 ```powershell
 python .\internet_mikrotik_ip_export.py -FlushManagedEntries
 ```
 
-Импорт общего файла в MikroTik:
+Import the combined file into MikroTik:
 
 ```routeros
 /import file-name=internet_mikrotik_import.rsc
 ```
 
-Если нужно проверить импорт на RouterOS 7.16+:
+Validate the import on RouterOS 7.16+:
 
 ```routeros
 /import file-name=internet_mikrotik_import.rsc verbose=yes dry-run
 ```
 
-## Основные режимы запуска
+## Common Examples
 
-Только общий файл:
+Combined output only:
 
 ```powershell
 python .\internet_mikrotik_ip_export.py -OutputMode all -FlushManagedEntries
 ```
 
-Только отдельные файлы по каждому списку:
+Per-list output only:
 
 ```powershell
 python .\internet_mikrotik_ip_export.py -OutputMode per-list -FlushManagedEntries
 ```
 
-Общий файл и отдельные файлы по спискам:
-
-```powershell
-python .\internet_mikrotik_ip_export.py -OutputMode both -FlushManagedEntries
-```
-
-Только конкретный список, например `t_telegram`:
+Only one address list:
 
 ```powershell
 python .\internet_mikrotik_ip_export.py -OutputMode per-list -OnlyAddressLists t_telegram -FlushManagedEntries
 ```
 
-Только общий файл, но только для одного списка:
-
-```powershell
-python .\internet_mikrotik_ip_export.py -OutputMode all -OnlyAddressLists t_telegram -OutputPath .\t_telegram_only.rsc -FlushManagedEntries
-```
-
-Другой каталог для отдельных файлов:
-
-```powershell
-python .\internet_mikrotik_ip_export.py -OutputMode both -ListsOutputDir .\mikrotik_lists -FlushManagedEntries
-```
-
-Только Google и Meta:
+Only Google and Meta:
 
 ```powershell
 python .\internet_mikrotik_ip_export.py -SkipLe -SkipTmdb -SkipTelegram -SkipYouTube -SkipChatGPT -SkipGitHubCopilot -SkipVSCodeExtensions -SkipVk -FlushManagedEntries
 ```
 
-Только Google Cloud и только IPv4:
+The script accepts both PowerShell-style parameters such as `-FlushManagedEntries` and GNU-style parameters such as `--flush-managed-entries`.
 
-```powershell
-python .\internet_mikrotik_ip_export.py -Sources cloud -SkipMeta -SkipLe -SkipTmdb -SkipTelegram -SkipYouTube -SkipChatGPT -SkipGitHubCopilot -SkipVSCodeExtensions -SkipVk -IncludeIPv4 -FlushManagedEntries
-```
+## Output
 
-Скрипт понимает оба стиля параметров:
-- PowerShell-совместимый: `-FlushManagedEntries`, `-OnlyAddressLists`, `-ConfigPath`
-- GNU-стиль: `--flush-managed-entries`, `--only-address-lists`, `--config-path`
+- `internet_mikrotik_import.rsc`: combined file with all managed address lists
+- `internet_mikrotik_import_lists/*.rsc`: individual `.rsc` files per address list
 
-## Что создаётся на выходе
+## Customization
 
-- `internet_mikrotik_import.rsc`  
-  общий файл со всеми `address-list`
+Most practical adjustments can be made in [config.json](./config.json):
 
-- `internet_mikrotik_import_lists\*.rsc`  
-  отдельные `.rsc` по каждому списку:
-  - `g_Google.rsc`
-  - `m_Meta.rsc`
-  - `z_LE.rsc`
-  - `m_tmbd.rsc`
-  - `t_telegram.rsc`
-  - `y_YouTube.rsc`
-  - `i_chatgpt.rsc`
-  - `i_GitHub_Copilot.rsc`
-  - `i_VSCode_Ext.rsc`
-  - `v_VK.rsc`
+- add or remove `hosts`
+- define additional `source_urls`
+- extend community inputs with `community_host_urls`, `community_rsc_urls`, or `community_cidr_urls`
+- add `extra_cidrs`
 
-## Важное поведение
+If you need a brand new independent `address-list`, extend the default service configuration and CLI handling in [internet_mikrotik_ip_export.py](./internet_mikrotik_ip_export.py).
 
-Если используется `-FlushManagedEntries`, скрипт удаляет все старые записи из целевых `address-list` по имени списка, а не только свои записи по `comment`.
+## Limitations
 
-Это удобно для полного обновления, но важно помнить:
-- если в этих же списках были ручные записи, они тоже будут удалены
-- лучше держать автоматически управляемые списки отдельно от ручных
+- some services do not publish official static IP ranges
+- DNS-based snapshots can change between runs
+- community sources may be noisy, stale, or intentionally broad
+- CDN and shared address space can overlap between services
+- exact traffic classification can be affected by DoH/DoT, ECH, and shared edge infrastructure
 
-## Как расширить списки под свои нужды
+## Project Structure
 
-### 1. Самый простой способ: править `config.json`
+- [internet_mikrotik_ip_export.py](./internet_mikrotik_ip_export.py): main Python exporter
+- [config.json](./config.json): service configuration and community sources
+- `internet_mikrotik_import.rsc`: combined output example
+- `internet_mikrotik_import_lists/`: per-list output examples
 
-В [config.json](./config.json) можно:
-- добавлять и убирать `hosts`
-- добавлять дополнительные `source_urls`
-- подключать community-источники через:
-  - `community_host_urls`
-  - `community_host_allow_patterns`
-  - `community_rsc_urls`
-  - `community_cidr_urls`
-- добавлять `extra_cidrs`
+## License
 
-Это подходит, если нужно:
-- расширить существующий профиль
-- добавить новые домены в текущий список
-- усилить список community-источниками
-- сузить список, убрав лишние домены или community feed
-
-### 2. Если нужно расширить уже существующий список
-
-Примеры:
-- добавить новые домены VK Видео, VK Play, Mail.ru, OK.ru в `v_VK`
-- добавить дополнительные YouTube CDN hostname в `y_YouTube`
-- усилить Telegram ещё одним raw CIDR-источником
-- добавить ещё endpoint'ы VS Code Marketplace
-
-Обычно для этого достаточно поправить `config.json` и запустить скрипт заново.
-
-### 3. Если нужен новый независимый `address-list`
-
-Например, если вы захотите сделать новый отдельный список вроде:
-- `d_Discord`
-- `x_XTwitter`
-- `n_Notion`
-- `c_Claude`
-
-То сейчас одного `config.json` недостаточно. Нужно будет:
-
-1. добавить новый профиль в `get_default_service_config()`
-2. включить его в `required_services`
-3. добавить CLI-аргументы для имени нового `address-list`
-4. добавить сборку этого профиля в `get_service_entries()`
-5. при желании добавить статистику в `SUMMARY_PROVIDERS`
-
-Если нужно, это можно сделать по аналогии с уже существующими профилями `telegram`, `youtube`, `chatgpt`, `vk` и т.д.
-
-### 4. Хорошая практика при расширении
-
-- по возможности сначала использовать официальные источники
-- community-источники использовать как усиление, а не как единственную истину
-- обязательно ставить фильтры `community_host_allow_patterns`, чтобы не затащить мусорные или рекламные домены
-- проверять готовый `.rsc` в lab-среде или через `dry-run`
-- помнить, что часть сервисов работает через CDN и shared infrastructure
-
-## Использованные GitHub-наработки и благодарности
-
-В проекте используются или учитываются наработки следующих GitHub-авторов и проектов:
-
-- [fernvenue](https://github.com/fernvenue)  
-  репозиторий: [fernvenue/telegram-cidr-list](https://github.com/fernvenue/telegram-cidr-list)  
-  используется для Telegram CIDR-источников
-
-- [vogster](https://github.com/vogster)  
-  репозиторий: [vogster/Mikrotik-Address-List](https://github.com/vogster/Mikrotik-Address-List)  
-  используется как community `.rsc`-источник для `i_chatgpt` и `y_YouTube`
-
-- [v2fly](https://github.com/v2fly)  
-  репозиторий: [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)  
-  используется как community host/domain source для `z_LE`, `i_chatgpt`, `i_GitHub_Copilot`, `i_VSCode_Ext`
-
-- [itdoginfo](https://github.com/itdoginfo)  
-  репозиторий: [itdoginfo/allow-domains](https://github.com/itdoginfo/allow-domains)  
-  используется как community host/domain source для `m_tmbd`, `t_telegram`, `y_YouTube`, `v_VK`
-
-- [iamwildtuna](https://github.com/iamwildtuna)  
-  gist: [Telegram infrastructure gist](https://gist.github.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15)  
-  использовался как дополнительный справочный источник по Telegram
-
-Спасибо авторам за их открытые наработки.
-
-Важно:
-- этот скрипт лицензируется отдельно под MIT
-- upstream-данные, community-списки и чужие репозитории продолжают жить по их собственным лицензиям и условиям использования
-
-## Официальные и внешние источники данных
-
-### Официальные и первичные источники
-
-- `https://www.gstatic.com/ipranges/goog.json`
-- `https://www.gstatic.com/ipranges/cloud.json`
-- `https://www.gstatic.com/ipranges/googlebot.json`
-- `https://www.facebook.com/help/278069664862989`
-- `whois.radb.net` c запросом `-i origin AS32934`
-- `https://letsencrypt.org`
-- `https://acme-v02.api.letsencrypt.org/directory`
-- `https://developer.themoviedb.org/docs/search-and-query-for-details`
-- `https://developer.themoviedb.org/reference/collection-images`
-- `https://core.telegram.org/gateway/api`
-- `https://core.telegram.org/getProxyConfig`
-- `https://core.telegram.org/getProxyConfigV6`
-- `https://support.google.com/a/answer/6214622?hl=en-US`
-- `https://support.google.com/a/answer/9012184?hl=en-US`
-- `https://knowledge.workspace.google.com/admin/security/firewall-and-proxy-settings?hl=en&visit_id=639092639852714062-1208261129&rd=1`
-- `https://help.openai.com/en/articles/9247338-network-recommendations-for-chatgpt-errors-on-web-and-apps`
-- `https://openai.com/chatgpt-connectors.json`
-- `https://docs.github.com/en/enterprise-cloud@latest/copilot/reference/copilot-allowlist-reference`
-- `https://docs.github.com/en/copilot/how-tos/troubleshoot-copilot/troubleshoot-network-errors`
-- `https://code.visualstudio.com/docs/setup/network`
-- `https://vk.com`
-- `https://vk.ru`
-- `https://id.vk.com`
-- `https://dns.google/resolve`
-
-### Community GitHub-источники
-
-- `https://github.com/fernvenue/telegram-cidr-list`
-- `https://raw.githubusercontent.com/fernvenue/telegram-cidr-list/master/CIDR.txt`
-- `https://github.com/vogster/Mikrotik-Address-List`
-- `https://raw.githubusercontent.com/vogster/Mikrotik-Address-List/main/chatgpt.rcs`
-- `https://raw.githubusercontent.com/vogster/Mikrotik-Address-List/main/youtube.rcs`
-- `https://github.com/v2fly/domain-list-community`
-- `https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/letsencrypt`
-- `https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/openai`
-- `https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/github-copilot`
-- `https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/github`
-- `https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/microsoft-dev`
-- `https://github.com/itdoginfo/allow-domains`
-- `https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Services/telegram.lst`
-- `https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Services/youtube.lst`
-- `https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst`
-- `https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Ukraine/inside-raw.lst`
-- `https://gist.github.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15`
-
-## Ограничения
-
-- часть сервисов не публикует официальный статический список IP-диапазонов
-- часть адресов получается через DNS snapshot, а это всегда временная картинка
-- community-источники могут содержать шум, устаревшие данные или домены шире нужного сервиса
-- один IP может относиться к нескольким сервисам одновременно
-- некоторые приложения могут использовать DoH/DoT, ECH, shared CDN и другие механизмы, которые усложняют точную адресную маршрутизацию
-
-Если задача чувствительная, лучше рассматривать эти списки как рабочую практическую основу, а не как "математически идеальную" классификацию трафика.
-
-## Структура проекта
-
-- [internet_mikrotik_ip_export.py](./internet_mikrotik_ip_export.py) — основной Python-скрипт
-- [config.json](./config.json) — конфигурация сервисов и community-источников
-- `internet_mikrotik_import.rsc` — общий результат
-- `internet_mikrotik_import_lists/` — отдельные `.rsc` по каждому списку
-
-## Лицензия
-
-Собственный код этого проекта выкладывается под лицензией [MIT](./LICENSE).
-
-Это относится к самому скрипту и его коду.
-Внешние данные, community-списки и upstream-репозитории не пере-лицензируются этим README и продолжают использоваться по их собственным условиям.
+The repository's own code is distributed under the [MIT License](./LICENSE).
+External data feeds, community lists, and upstream sources remain subject to their own terms.
