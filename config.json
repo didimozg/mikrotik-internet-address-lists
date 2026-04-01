@@ -265,6 +265,59 @@
         "(^|\\.)ok\\.ru$",
         "(^|\\.)mail\\.ru$"
       ]
+    },
+    "torrents": {
+      "hosts": [
+        "yts.bz",
+        "1337x.to",
+        "nyaa.si",
+        "sukebei.nyaa.si",
+        "thepiratebay.org",
+        "fitgirl-repacks.site",
+        "ext.to",
+        "eztvx.to",
+        "limetorrents.lol",
+        "skidrowreloaded.com",
+        "rargb.to",
+        "rutracker.org",
+        "static.rutracker.cc",
+        "nnmclub.to",
+        "nnmstatic.win",
+        "rutor.info",
+        "kinozal.tv",
+        "tapochek.net",
+        "lostfilm.tv",
+        "lostfilm.info"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/top-torrent-sites/",
+        "https://rutracker.org/",
+        "https://nnmclub.to/"
+      ],
+      "community_host_urls": [
+        "https://gist.githubusercontent.com/themaximax/9d6d934ee49b8b089c527b9b22d161a4/raw",
+        "https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst"
+      ],
+      "community_host_allow_patterns": [
+        "(^|\\.)yts\\.bz$",
+        "(^|\\.)1337x\\.to$",
+        "(^|\\.)nyaa\\.si$",
+        "(^|\\.)thepiratebay\\.org$",
+        "(^|\\.)fitgirl-repacks\\.site$",
+        "(^|\\.)ext\\.to$",
+        "(^|\\.)eztvx\\.to$",
+        "(^|\\.)limetorrents\\.lol$",
+        "(^|\\.)skidrowreloaded\\.com$",
+        "(^|\\.)rargb\\.to$",
+        "(^|\\.)rutracker\\.org$",
+        "^static\\.rutracker\\.cc$",
+        "(^|\\.)nnmclub\\.to$",
+        "(^|\\.)nnmstatic\\.win$",
+        "(^|\\.)rutor\\.info$",
+        "(^|\\.)kinozal\\.tv$",
+        "(^|\\.)tapochek\\.net$",
+        "(^|\\.)lostfilm\\.(tv|info|top)$"
+      ]
     }
   }
 }

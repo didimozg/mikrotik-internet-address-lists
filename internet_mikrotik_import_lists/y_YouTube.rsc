@@ -1,19 +1,19 @@
 # Internet service IP ranges export for MikroTik
-# Generated at: 2026-03-23 01:00:28+03:00
+# Generated at: 2026-04-01 02:08:38+03:00
 # Output mode: per-list:y_YouTube
-# Optimization raw-prefixes: 197
-# Optimization final-prefixes: 95
-# Optimization saved-prefixes: 102
+# Optimization raw-prefixes: 101
+# Optimization final-prefixes: 45
+# Optimization saved-prefixes: 56
 # Google source goog: https://www.gstatic.com/ipranges/goog.json
-# Google source goog creationTime: 2026-03-22T13:04:06.162099
-# Google source goog syncToken: 1774209846162
+# Google source goog creationTime: 2026-03-31T13:08:13.38782
+# Google source goog syncToken: 1774987693387
 # Google source cloud: https://www.gstatic.com/ipranges/cloud.json
-# Google source cloud creationTime: 2026-03-22T13:04:06.162099
-# Google source cloud syncToken: 1774209846162
+# Google source cloud creationTime: 2026-03-31T13:08:13.38782
+# Google source cloud syncToken: 1774987693387
 # Meta help: https://www.facebook.com/help/278069664862989
 # Meta whois server: whois.radb.net
 # Meta ASN query: AS32934
-# Meta retrieved at: 2026-03-23 00:57:43+03:00
+# Meta retrieved at: 2026-04-01 02:05:44+03:00
 # DNS over HTTPS resolver: https://dns.google/resolve
 # le host source: https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/letsencrypt
 # le host extracted-hosts: 3
@@ -51,7 +51,7 @@
 # chatgpt host extracted-hosts: 13
 # chatgpt host filters: (^|\.)chat\.com$, (^|\.)chatgpt\.com$, (^|\.)openai\.com$, (^|\.)oaistatic\.com$, (^|\.)oaiusercontent\.com$, (^|\.)sora\.com$, (^|\.)azureedge\.net$, (^|\.)azurefd\.net$, (^|\.)blob\.core\.windows\.net$, (^|\.)livekit\.cloud$
 # ChatGPT connectors source: https://openai.com/chatgpt-connectors.json
-# ChatGPT connectors creationTime: 2026-03-17T22:13:02.191285
+# ChatGPT connectors creationTime: 2026-03-25T00:52:28.451252
 # ChatGPT hosts: chatgpt.com, chat.openai.com, openai.com, api.openai.com, auth.openai.com, setup.auth.openai.com, oaistatic.com, files.oaiusercontent.com, android.chat.openai.com, ios.chat.openai.com
 # ChatGPT source: https://help.openai.com/en/articles/9247338-network-recommendations-for-chatgpt-errors-on-web-and-apps
 # github_copilot host source: https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/github-copilot
@@ -80,6 +80,16 @@
 # VK source: https://clips.vk.com
 # VK source: https://music.vk.com
 # VK source: https://id.vk.com
+# torrents host source: https://gist.githubusercontent.com/themaximax/9d6d934ee49b8b089c527b9b22d161a4/raw
+# torrents host extracted-hosts: 8
+# torrents host filters: (^|\.)yts\.bz$, (^|\.)1337x\.to$, (^|\.)nyaa\.si$, (^|\.)thepiratebay\.org$, (^|\.)fitgirl-repacks\.site$, (^|\.)ext\.to$, (^|\.)eztvx\.to$, (^|\.)limetorrents\.lol$, (^|\.)skidrowreloaded\.com$, (^|\.)rargb\.to$, (^|\.)rutracker\.org$, ^static\.rutracker\.cc$, (^|\.)nnmclub\.to$, (^|\.)nnmstatic\.win$, (^|\.)rutor\.info$, (^|\.)kinozal\.tv$, (^|\.)tapochek\.net$, (^|\.)lostfilm\.(tv|info|top)$
+# torrents host source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
+# torrents host extracted-hosts: 9
+# torrents host filters: (^|\.)yts\.bz$, (^|\.)1337x\.to$, (^|\.)nyaa\.si$, (^|\.)thepiratebay\.org$, (^|\.)fitgirl-repacks\.site$, (^|\.)ext\.to$, (^|\.)eztvx\.to$, (^|\.)limetorrents\.lol$, (^|\.)skidrowreloaded\.com$, (^|\.)rargb\.to$, (^|\.)rutracker\.org$, ^static\.rutracker\.cc$, (^|\.)nnmclub\.to$, (^|\.)nnmstatic\.win$, (^|\.)rutor\.info$, (^|\.)kinozal\.tv$, (^|\.)tapochek\.net$, (^|\.)lostfilm\.(tv|info|top)$
+# Torrents hosts: yts.bz, 1337x.to, nyaa.si, sukebei.nyaa.si, thepiratebay.org, fitgirl-repacks.site, ext.to, eztvx.to, limetorrents.lol, skidrowreloaded.com, rargb.to, rutracker.org, static.rutracker.cc, nnmclub.to, nnmstatic.win, rutor.info, kinozal.tv, tapochek.net, lostfilm.tv, lostfilm.info
+# Torrents source: https://torrentfreak.com/top-torrent-sites/
+# Torrents source: https://rutracker.org/
+# Torrents source: https://nnmclub.to/
 # Address-list file: y_YouTube
 /ip firewall address-list
 :foreach id in=[find where list="y_YouTube"] do={ remove $id }
@@ -89,48 +99,20 @@
 :if ([:len [find where list="y_YouTube" and address="72.14.192.0/18"]] = 0) do={ add list="y_YouTube" address=72.14.192.0/18 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
 :if ([:len [find where list="y_YouTube" and address="74.125.0.0/16"]] = 0) do={ add list="y_YouTube" address=74.125.0.0/16 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
 :if ([:len [find where list="y_YouTube" and address="108.177.8.0/21"]] = 0) do={ add list="y_YouTube" address=108.177.8.0/21 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.91/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.91/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.93/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.93/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.95/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.95/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.99/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.99/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.103/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.103/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.104/31"]] = 0) do={ add list="y_YouTube" address=142.250.109.104/31 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.106/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.106/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.119/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.119/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.132/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.132/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.136/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.136/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.147/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.147/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.190/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.190/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.91/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.91/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=7;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.93/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.93/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=7;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.95/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.95/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.100/31"]] = 0) do={ add list="y_YouTube" address=142.250.120.100/31 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.102/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.102/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.113/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.113/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.119/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.119/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.132/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.132/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.136/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.136/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=7;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.138/31"]] = 0) do={ add list="y_YouTube" address=142.250.120.138/31 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.190/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.190/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=7;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.91/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.91/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.93/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.93/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.95/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.95/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.100/31"]] = 0) do={ add list="y_YouTube" address=142.250.130.100/31 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.102/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.102/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.113/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.113/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.119/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.119/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.132/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.132/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.136/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.136/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.138/31"]] = 0) do={ add list="y_YouTube" address=142.250.130.138/31 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.190/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.190/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.91/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.91/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.93/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.93/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.95/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.95/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.119/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.119/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.132/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.132/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.136/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.136/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.190/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.190/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="172.217.0.0/16"]] = 0) do={ add list="y_YouTube" address=172.217.0.0/16 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.38.129/32"]] = 0) do={ add list="y_YouTube" address=142.251.38.129/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.38.138/32"]] = 0) do={ add list="y_YouTube" address=142.251.38.138/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="142.251.38.142/32"]] = 0) do={ add list="y_YouTube" address=142.251.38.142/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=6;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="142.251.38.150/32"]] = 0) do={ add list="y_YouTube" address=142.251.38.150/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.141.161/32"]] = 0) do={ add list="y_YouTube" address=142.251.141.161/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.141.170/32"]] = 0) do={ add list="y_YouTube" address=142.251.141.170/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="142.251.141.174/32"]] = 0) do={ add list="y_YouTube" address=142.251.141.174/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=6;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="142.251.141.182/32"]] = 0) do={ add list="y_YouTube" address=142.251.141.182/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.209.1/32"]] = 0) do={ add list="y_YouTube" address=142.251.209.1/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.209.4/32"]] = 0) do={ add list="y_YouTube" address=142.251.209.4/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.209.10/32"]] = 0) do={ add list="y_YouTube" address=142.251.209.10/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="142.251.209.14/32"]] = 0) do={ add list="y_YouTube" address=142.251.209.14/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=5;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="142.251.209.22/32"]] = 0) do={ add list="y_YouTube" address=142.251.209.22/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="172.217.0.0/16"]] = 0) do={ add list="y_YouTube" address=172.217.0.0/16 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=8;source-count=3" }
 :if ([:len [find where list="y_YouTube" and address="173.194.0.0/16"]] = 0) do={ add list="y_YouTube" address=173.194.0.0/16 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
 :if ([:len [find where list="y_YouTube" and address="209.85.128.0/17"]] = 0) do={ add list="y_YouTube" address=209.85.128.0/17 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
 :if ([:len [find where list="y_YouTube" and address="216.58.192.0/19"]] = 0) do={ add list="y_YouTube" address=216.58.192.0/19 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
@@ -141,42 +123,20 @@
 :if ([:len [find where list="y_YouTube" and address="2001:4860:4802:34::223/128"]] = 0) do={ add list="y_YouTube" address=2001:4860:4802:34::223/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
 :if ([:len [find where list="y_YouTube" and address="2001:4860:4802:36::223/128"]] = 0) do={ add list="y_YouTube" address=2001:4860:4802:36::223/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
 :if ([:len [find where list="y_YouTube" and address="2001:4860:4802:38::223/128"]] = 0) do={ add list="y_YouTube" address=2001:4860:4802:38::223/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::5b/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::5b/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::5d/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::5d/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::5f/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::5f/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::63/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::63/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::67/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::67/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::69/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::69/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::6a/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::6a/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::77/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::77/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::84/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::84/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::88/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::88/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::be/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::be/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::5b/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::5b/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::5d/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::5d/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::5f/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::5f/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::65/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::65/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::66/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::66/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::71/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::71/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::77/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::77/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::84/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::84/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::88/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::88/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::8b/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::8b/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::be/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::be/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::5b/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::5b/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::5d/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::5d/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::5f/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::5f/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::64/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::64/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::66/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::66/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::77/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::77/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::84/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::84/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::88/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::88/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::8a/127"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::8a/127 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::be/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::be/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::5b/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::5b/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::5d/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::5d/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::5f/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::5f/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::77/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::77/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::84/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::84/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::88/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::88/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::be/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::be/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:800::2001/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:800::2001/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:800::200a/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:800::200a/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:800::200e/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:800::200e/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=6;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:800::2016/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:800::2016/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:801::2001/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:801::2001/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:801::200a/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:801::200a/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:801::200e/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:801::200e/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=6;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:801::2016/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:801::2016/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80c::2001/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80c::2001/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80c::200a/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80c::200a/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80c::200e/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80c::200e/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80c::2016/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80c::2016/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80d::2001/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80d::2001/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80d::2004/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80d::2004/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80d::200a/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80d::200a/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80d::200e/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80d::200e/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=5;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80d::2016/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80d::2016/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }

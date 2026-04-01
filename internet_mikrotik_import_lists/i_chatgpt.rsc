@@ -1,19 +1,19 @@
 # Internet service IP ranges export for MikroTik
-# Generated at: 2026-03-23 01:00:28+03:00
+# Generated at: 2026-04-01 02:08:38+03:00
 # Output mode: per-list:i_chatgpt
-# Optimization raw-prefixes: 309
+# Optimization raw-prefixes: 310
 # Optimization final-prefixes: 264
-# Optimization saved-prefixes: 45
+# Optimization saved-prefixes: 46
 # Google source goog: https://www.gstatic.com/ipranges/goog.json
-# Google source goog creationTime: 2026-03-22T13:04:06.162099
-# Google source goog syncToken: 1774209846162
+# Google source goog creationTime: 2026-03-31T13:08:13.38782
+# Google source goog syncToken: 1774987693387
 # Google source cloud: https://www.gstatic.com/ipranges/cloud.json
-# Google source cloud creationTime: 2026-03-22T13:04:06.162099
-# Google source cloud syncToken: 1774209846162
+# Google source cloud creationTime: 2026-03-31T13:08:13.38782
+# Google source cloud syncToken: 1774987693387
 # Meta help: https://www.facebook.com/help/278069664862989
 # Meta whois server: whois.radb.net
 # Meta ASN query: AS32934
-# Meta retrieved at: 2026-03-23 00:57:43+03:00
+# Meta retrieved at: 2026-04-01 02:05:44+03:00
 # DNS over HTTPS resolver: https://dns.google/resolve
 # le host source: https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/letsencrypt
 # le host extracted-hosts: 3
@@ -51,7 +51,7 @@
 # chatgpt host extracted-hosts: 13
 # chatgpt host filters: (^|\.)chat\.com$, (^|\.)chatgpt\.com$, (^|\.)openai\.com$, (^|\.)oaistatic\.com$, (^|\.)oaiusercontent\.com$, (^|\.)sora\.com$, (^|\.)azureedge\.net$, (^|\.)azurefd\.net$, (^|\.)blob\.core\.windows\.net$, (^|\.)livekit\.cloud$
 # ChatGPT connectors source: https://openai.com/chatgpt-connectors.json
-# ChatGPT connectors creationTime: 2026-03-17T22:13:02.191285
+# ChatGPT connectors creationTime: 2026-03-25T00:52:28.451252
 # ChatGPT hosts: chatgpt.com, chat.openai.com, openai.com, api.openai.com, auth.openai.com, setup.auth.openai.com, oaistatic.com, files.oaiusercontent.com, android.chat.openai.com, ios.chat.openai.com
 # ChatGPT source: https://help.openai.com/en/articles/9247338-network-recommendations-for-chatgpt-errors-on-web-and-apps
 # github_copilot host source: https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/github-copilot
@@ -80,6 +80,16 @@
 # VK source: https://clips.vk.com
 # VK source: https://music.vk.com
 # VK source: https://id.vk.com
+# torrents host source: https://gist.githubusercontent.com/themaximax/9d6d934ee49b8b089c527b9b22d161a4/raw
+# torrents host extracted-hosts: 8
+# torrents host filters: (^|\.)yts\.bz$, (^|\.)1337x\.to$, (^|\.)nyaa\.si$, (^|\.)thepiratebay\.org$, (^|\.)fitgirl-repacks\.site$, (^|\.)ext\.to$, (^|\.)eztvx\.to$, (^|\.)limetorrents\.lol$, (^|\.)skidrowreloaded\.com$, (^|\.)rargb\.to$, (^|\.)rutracker\.org$, ^static\.rutracker\.cc$, (^|\.)nnmclub\.to$, (^|\.)nnmstatic\.win$, (^|\.)rutor\.info$, (^|\.)kinozal\.tv$, (^|\.)tapochek\.net$, (^|\.)lostfilm\.(tv|info|top)$
+# torrents host source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
+# torrents host extracted-hosts: 9
+# torrents host filters: (^|\.)yts\.bz$, (^|\.)1337x\.to$, (^|\.)nyaa\.si$, (^|\.)thepiratebay\.org$, (^|\.)fitgirl-repacks\.site$, (^|\.)ext\.to$, (^|\.)eztvx\.to$, (^|\.)limetorrents\.lol$, (^|\.)skidrowreloaded\.com$, (^|\.)rargb\.to$, (^|\.)rutracker\.org$, ^static\.rutracker\.cc$, (^|\.)nnmclub\.to$, (^|\.)nnmstatic\.win$, (^|\.)rutor\.info$, (^|\.)kinozal\.tv$, (^|\.)tapochek\.net$, (^|\.)lostfilm\.(tv|info|top)$
+# Torrents hosts: yts.bz, 1337x.to, nyaa.si, sukebei.nyaa.si, thepiratebay.org, fitgirl-repacks.site, ext.to, eztvx.to, limetorrents.lol, skidrowreloaded.com, rargb.to, rutracker.org, static.rutracker.cc, nnmclub.to, nnmstatic.win, rutor.info, kinozal.tv, tapochek.net, lostfilm.tv, lostfilm.info
+# Torrents source: https://torrentfreak.com/top-torrent-sites/
+# Torrents source: https://rutracker.org/
+# Torrents source: https://nnmclub.to/
 # Address-list file: i_chatgpt
 /ip firewall address-list
 :foreach id in=[find where list="i_chatgpt"] do={ remove $id }
@@ -102,6 +112,7 @@
 :if ([:len [find where list="i_chatgpt" and address="4.245.198.13/32"]] = 0) do={ add list="i_chatgpt" address=4.245.198.13/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="8.6.112.0/24"]] = 0) do={ add list="i_chatgpt" address=8.6.112.0/24 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="8.47.69.0/24"]] = 0) do={ add list="i_chatgpt" address=8.47.69.0/24 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
+:if ([:len [find where list="i_chatgpt" and address="9.160.163.224/28"]] = 0) do={ add list="i_chatgpt" address=9.160.163.224/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="12.129.184.64/26"]] = 0) do={ add list="i_chatgpt" address=12.129.184.64/26 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="13.65.138.96/27"]] = 0) do={ add list="i_chatgpt" address=13.65.138.96/27 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
 :if ([:len [find where list="i_chatgpt" and address="13.67.46.240/28"]] = 0) do={ add list="i_chatgpt" address=13.67.46.240/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
@@ -114,9 +125,7 @@
 :if ([:len [find where list="i_chatgpt" and address="13.76.116.80/28"]] = 0) do={ add list="i_chatgpt" address=13.76.116.80/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="13.79.43.0/28"]] = 0) do={ add list="i_chatgpt" address=13.79.43.0/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="13.83.237.176/28"]] = 0) do={ add list="i_chatgpt" address=13.83.237.176/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
-:if ([:len [find where list="i_chatgpt" and address="13.107.226.46/32"]] = 0) do={ add list="i_chatgpt" address=13.107.226.46/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="13.107.246.60/32"]] = 0) do={ add list="i_chatgpt" address=13.107.246.60/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
-:if ([:len [find where list="i_chatgpt" and address="13.107.253.46/32"]] = 0) do={ add list="i_chatgpt" address=13.107.253.46/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="13.223.161.115/32"]] = 0) do={ add list="i_chatgpt" address=13.223.161.115/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="18.66.147.17/32"]] = 0) do={ add list="i_chatgpt" address=18.66.147.17/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="18.66.147.35/32"]] = 0) do={ add list="i_chatgpt" address=18.66.147.35/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
@@ -152,6 +161,7 @@
 :if ([:len [find where list="i_chatgpt" and address="20.194.157.176/28"]] = 0) do={ add list="i_chatgpt" address=20.194.157.176/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="20.198.67.96/28"]] = 0) do={ add list="i_chatgpt" address=20.198.67.96/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="20.203.245.32/28"]] = 0) do={ add list="i_chatgpt" address=20.203.245.32/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
+:if ([:len [find where list="i_chatgpt" and address="20.206.107.192/28"]] = 0) do={ add list="i_chatgpt" address=20.206.107.192/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="20.210.154.128/28"]] = 0) do={ add list="i_chatgpt" address=20.210.154.128/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="20.210.174.208/28"]] = 0) do={ add list="i_chatgpt" address=20.210.174.208/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="20.215.187.208/28"]] = 0) do={ add list="i_chatgpt" address=20.215.187.208/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
@@ -270,14 +280,13 @@
 :if ([:len [find where list="i_chatgpt" and address="135.220.208.92/32"]] = 0) do={ add list="i_chatgpt" address=135.220.208.92/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="135.234.27.89/32"]] = 0) do={ add list="i_chatgpt" address=135.234.27.89/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="135.237.133.48/28"]] = 0) do={ add list="i_chatgpt" address=135.237.133.48/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
-:if ([:len [find where list="i_chatgpt" and address="135.237.133.112/28"]] = 0) do={ add list="i_chatgpt" address=135.237.133.112/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="137.135.183.96/28"]] = 0) do={ add list="i_chatgpt" address=137.135.183.96/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="137.135.191.176/28"]] = 0) do={ add list="i_chatgpt" address=137.135.191.176/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="142.250.186.115/32"]] = 0) do={ add list="i_chatgpt" address=142.250.186.115/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="148.76.185.195/32"]] = 0) do={ add list="i_chatgpt" address=148.76.185.195/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="148.76.185.196/31"]] = 0) do={ add list="i_chatgpt" address=148.76.185.196/31 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
-:if ([:len [find where list="i_chatgpt" and address="150.171.110.134/32"]] = 0) do={ add list="i_chatgpt" address=150.171.110.134/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
-:if ([:len [find where list="i_chatgpt" and address="150.171.110.137/32"]] = 0) do={ add list="i_chatgpt" address=150.171.110.137/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
+:if ([:len [find where list="i_chatgpt" and address="150.171.110.136/31"]] = 0) do={ add list="i_chatgpt" address=150.171.110.136/31 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
+:if ([:len [find where list="i_chatgpt" and address="150.171.110.138/32"]] = 0) do={ add list="i_chatgpt" address=150.171.110.138/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="162.159.140.0/24"]] = 0) do={ add list="i_chatgpt" address=162.159.140.0/24 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2;source-count=2" }
 :if ([:len [find where list="i_chatgpt" and address="167.234.250.108/32"]] = 0) do={ add list="i_chatgpt" address=167.234.250.108/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
 :if ([:len [find where list="i_chatgpt" and address="168.138.144.119/32"]] = 0) do={ add list="i_chatgpt" address=168.138.144.119/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
@@ -301,6 +310,7 @@
 :if ([:len [find where list="i_chatgpt" and address="172.183.143.224/28"]] = 0) do={ add list="i_chatgpt" address=172.183.143.224/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="172.191.70.179/32"]] = 0) do={ add list="i_chatgpt" address=172.191.70.179/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="172.191.238.68/32"]] = 0) do={ add list="i_chatgpt" address=172.191.238.68/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
+:if ([:len [find where list="i_chatgpt" and address="172.196.40.208/28"]] = 0) do={ add list="i_chatgpt" address=172.196.40.208/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="172.202.102.112/28"]] = 0) do={ add list="i_chatgpt" address=172.202.102.112/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="172.203.39.49/32"]] = 0) do={ add list="i_chatgpt" address=172.203.39.49/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="172.204.16.64/28"]] = 0) do={ add list="i_chatgpt" address=172.204.16.64/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
@@ -327,8 +337,8 @@
 :if ([:len [find where list="i_chatgpt" and address="216.64.170.234/32"]] = 0) do={ add list="i_chatgpt" address=216.64.170.234/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 /ipv6 firewall address-list
 :foreach id in=[find where list="i_chatgpt"] do={ remove $id }
-:if ([:len [find where list="i_chatgpt" and address="2603:1061:14:187::1/128"]] = 0) do={ add list="i_chatgpt" address=2603:1061:14:187::1/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
-:if ([:len [find where list="i_chatgpt" and address="2603:1061:14:188::1/128"]] = 0) do={ add list="i_chatgpt" address=2603:1061:14:188::1/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
+:if ([:len [find where list="i_chatgpt" and address="2603:1061:14:185::1/128"]] = 0) do={ add list="i_chatgpt" address=2603:1061:14:185::1/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
+:if ([:len [find where list="i_chatgpt" and address="2603:1061:14:188::1/128"]] = 0) do={ add list="i_chatgpt" address=2603:1061:14:188::1/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
 :if ([:len [find where list="i_chatgpt" and address="2606:4700:4401::ac40:9034/128"]] = 0) do={ add list="i_chatgpt" address=2606:4700:4401::ac40:9034/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="2606:4700:4401::ac40:92c4/128"]] = 0) do={ add list="i_chatgpt" address=2606:4700:4401::ac40:92c4/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="2606:4700:4402::6812:25e4/128"]] = 0) do={ add list="i_chatgpt" address=2606:4700:4402::6812:25e4/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }

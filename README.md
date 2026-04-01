@@ -29,6 +29,7 @@ Python-скрипт, который собирает IP-диапазоны и DN
 | `i_GitHub_Copilot` | GitHub Copilot |
 | `i_VSCode_Ext` | Visual Studio Code Marketplace и скачивание расширений |
 | `v_VK` | VK и связанные сервисы экосистемы |
+| `t_Torrents` | Популярные торрент-сайты и трекеры, включая `rutracker.org` и `nnmclub.to` |
 
 ## Что делает скрипт
 
@@ -131,13 +132,13 @@ python .\internet_mikrotik_ip_export.py -OutputMode both -ListsOutputDir .\mikro
 Только Google и Meta:
 
 ```powershell
-python .\internet_mikrotik_ip_export.py -SkipLe -SkipTmdb -SkipTelegram -SkipYouTube -SkipChatGPT -SkipGitHubCopilot -SkipVSCodeExtensions -SkipVk -FlushManagedEntries
+python .\internet_mikrotik_ip_export.py -SkipLe -SkipTmdb -SkipTelegram -SkipYouTube -SkipChatGPT -SkipGitHubCopilot -SkipVSCodeExtensions -SkipVk -SkipTorrents -FlushManagedEntries
 ```
 
 Только Google Cloud и только IPv4:
 
 ```powershell
-python .\internet_mikrotik_ip_export.py -Sources cloud -SkipMeta -SkipLe -SkipTmdb -SkipTelegram -SkipYouTube -SkipChatGPT -SkipGitHubCopilot -SkipVSCodeExtensions -SkipVk -IncludeIPv4 -FlushManagedEntries
+python .\internet_mikrotik_ip_export.py -Sources cloud -SkipMeta -SkipLe -SkipTmdb -SkipTelegram -SkipYouTube -SkipChatGPT -SkipGitHubCopilot -SkipVSCodeExtensions -SkipVk -SkipTorrents -IncludeIPv4 -FlushManagedEntries
 ```
 
 Скрипт понимает оба стиля параметров:
@@ -161,6 +162,7 @@ python .\internet_mikrotik_ip_export.py -Sources cloud -SkipMeta -SkipLe -SkipTm
   - `i_GitHub_Copilot.rsc`
   - `i_VSCode_Ext.rsc`
   - `v_VK.rsc`
+  - `t_Torrents.rsc`
 
 ## Важное поведение
 
@@ -197,6 +199,7 @@ python .\internet_mikrotik_ip_export.py -Sources cloud -SkipMeta -SkipLe -SkipTm
 - добавить дополнительные YouTube CDN hostname в `y_YouTube`
 - усилить Telegram ещё одним raw CIDR-источником
 - добавить ещё endpoint'ы VS Code Marketplace
+- расширить `t_Torrents` новыми трекерами, mirror-доменами или статическими hostname вроде CDN/asset-хостов
 
 Обычно для этого достаточно поправить `config.json` и запустить скрипт заново.
 
@@ -250,6 +253,10 @@ python .\internet_mikrotik_ip_export.py -Sources cloud -SkipMeta -SkipLe -SkipTm
   gist: [Telegram infrastructure gist](https://gist.github.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15)  
   использовался как дополнительный справочный источник по Telegram
 
+- [themaximax](https://github.com/themaximax)  
+  gist: [keen-pbr домены популярных торрент трекеров](https://gist.github.com/themaximax/9d6d934ee49b8b089c527b9b22d161a4)  
+  используется как community host/domain source для `t_Torrents`
+
 Спасибо авторам за их открытые наработки.
 
 Важно:
@@ -283,6 +290,9 @@ python .\internet_mikrotik_ip_export.py -Sources cloud -SkipMeta -SkipLe -SkipTm
 - `https://vk.com`
 - `https://vk.ru`
 - `https://id.vk.com`
+- `https://torrentfreak.com/top-torrent-sites/`
+- `https://rutracker.org/`
+- `https://nnmclub.to/`
 - `https://dns.google/resolve`
 
 ### Community GitHub-источники
@@ -304,6 +314,8 @@ python .\internet_mikrotik_ip_export.py -Sources cloud -SkipMeta -SkipLe -SkipTm
 - `https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst`
 - `https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Ukraine/inside-raw.lst`
 - `https://gist.github.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15`
+- `https://gist.github.com/themaximax/9d6d934ee49b8b089c527b9b22d161a4`
+- `https://gist.githubusercontent.com/themaximax/9d6d934ee49b8b089c527b9b22d161a4/raw`
 
 ## Ограничения
 

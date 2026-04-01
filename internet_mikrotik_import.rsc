@@ -1,19 +1,19 @@
 # Internet service IP ranges export for MikroTik
-# Generated at: 2026-03-23 01:00:28+03:00
+# Generated at: 2026-04-01 02:08:38+03:00
 # Output mode: all
-# Optimization raw-prefixes: 2916
+# Optimization raw-prefixes: 2943
 # Optimization final-prefixes: 673
-# Optimization saved-prefixes: 2243
+# Optimization saved-prefixes: 2270
 # Google source goog: https://www.gstatic.com/ipranges/goog.json
-# Google source goog creationTime: 2026-03-22T13:04:06.162099
-# Google source goog syncToken: 1774209846162
+# Google source goog creationTime: 2026-03-31T13:08:13.38782
+# Google source goog syncToken: 1774987693387
 # Google source cloud: https://www.gstatic.com/ipranges/cloud.json
-# Google source cloud creationTime: 2026-03-22T13:04:06.162099
-# Google source cloud syncToken: 1774209846162
+# Google source cloud creationTime: 2026-03-31T13:08:13.38782
+# Google source cloud syncToken: 1774987693387
 # Meta help: https://www.facebook.com/help/278069664862989
 # Meta whois server: whois.radb.net
 # Meta ASN query: AS32934
-# Meta retrieved at: 2026-03-23 00:57:43+03:00
+# Meta retrieved at: 2026-04-01 02:05:44+03:00
 # DNS over HTTPS resolver: https://dns.google/resolve
 # le host source: https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/letsencrypt
 # le host extracted-hosts: 3
@@ -51,7 +51,7 @@
 # chatgpt host extracted-hosts: 13
 # chatgpt host filters: (^|\.)chat\.com$, (^|\.)chatgpt\.com$, (^|\.)openai\.com$, (^|\.)oaistatic\.com$, (^|\.)oaiusercontent\.com$, (^|\.)sora\.com$, (^|\.)azureedge\.net$, (^|\.)azurefd\.net$, (^|\.)blob\.core\.windows\.net$, (^|\.)livekit\.cloud$
 # ChatGPT connectors source: https://openai.com/chatgpt-connectors.json
-# ChatGPT connectors creationTime: 2026-03-17T22:13:02.191285
+# ChatGPT connectors creationTime: 2026-03-25T00:52:28.451252
 # ChatGPT hosts: chatgpt.com, chat.openai.com, openai.com, api.openai.com, auth.openai.com, setup.auth.openai.com, oaistatic.com, files.oaiusercontent.com, android.chat.openai.com, ios.chat.openai.com
 # ChatGPT source: https://help.openai.com/en/articles/9247338-network-recommendations-for-chatgpt-errors-on-web-and-apps
 # github_copilot host source: https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/github-copilot
@@ -80,6 +80,16 @@
 # VK source: https://clips.vk.com
 # VK source: https://music.vk.com
 # VK source: https://id.vk.com
+# torrents host source: https://gist.githubusercontent.com/themaximax/9d6d934ee49b8b089c527b9b22d161a4/raw
+# torrents host extracted-hosts: 8
+# torrents host filters: (^|\.)yts\.bz$, (^|\.)1337x\.to$, (^|\.)nyaa\.si$, (^|\.)thepiratebay\.org$, (^|\.)fitgirl-repacks\.site$, (^|\.)ext\.to$, (^|\.)eztvx\.to$, (^|\.)limetorrents\.lol$, (^|\.)skidrowreloaded\.com$, (^|\.)rargb\.to$, (^|\.)rutracker\.org$, ^static\.rutracker\.cc$, (^|\.)nnmclub\.to$, (^|\.)nnmstatic\.win$, (^|\.)rutor\.info$, (^|\.)kinozal\.tv$, (^|\.)tapochek\.net$, (^|\.)lostfilm\.(tv|info|top)$
+# torrents host source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
+# torrents host extracted-hosts: 9
+# torrents host filters: (^|\.)yts\.bz$, (^|\.)1337x\.to$, (^|\.)nyaa\.si$, (^|\.)thepiratebay\.org$, (^|\.)fitgirl-repacks\.site$, (^|\.)ext\.to$, (^|\.)eztvx\.to$, (^|\.)limetorrents\.lol$, (^|\.)skidrowreloaded\.com$, (^|\.)rargb\.to$, (^|\.)rutracker\.org$, ^static\.rutracker\.cc$, (^|\.)nnmclub\.to$, (^|\.)nnmstatic\.win$, (^|\.)rutor\.info$, (^|\.)kinozal\.tv$, (^|\.)tapochek\.net$, (^|\.)lostfilm\.(tv|info|top)$
+# Torrents hosts: yts.bz, 1337x.to, nyaa.si, sukebei.nyaa.si, thepiratebay.org, fitgirl-repacks.site, ext.to, eztvx.to, limetorrents.lol, skidrowreloaded.com, rargb.to, rutracker.org, static.rutracker.cc, nnmclub.to, nnmstatic.win, rutor.info, kinozal.tv, tapochek.net, lostfilm.tv, lostfilm.info
+# Torrents source: https://torrentfreak.com/top-torrent-sites/
+# Torrents source: https://rutracker.org/
+# Torrents source: https://nnmclub.to/
 /ip firewall address-list
 :foreach id in=[find where list="g_Google"] do={ remove $id }
 :foreach id in=[find where list="i_GitHub_Copilot"] do={ remove $id }
@@ -87,6 +97,7 @@
 :foreach id in=[find where list="i_chatgpt"] do={ remove $id }
 :foreach id in=[find where list="m_Meta"] do={ remove $id }
 :foreach id in=[find where list="m_tmbd"] do={ remove $id }
+:foreach id in=[find where list="t_Torrents"] do={ remove $id }
 :foreach id in=[find where list="t_telegram"] do={ remove $id }
 :foreach id in=[find where list="v_VK"] do={ remove $id }
 :foreach id in=[find where list="y_YouTube"] do={ remove $id }
@@ -97,6 +108,7 @@
 :foreach id in=[find where list="i_chatgpt"] do={ remove $id }
 :foreach id in=[find where list="m_Meta"] do={ remove $id }
 :foreach id in=[find where list="m_tmbd"] do={ remove $id }
+:foreach id in=[find where list="t_Torrents"] do={ remove $id }
 :foreach id in=[find where list="t_telegram"] do={ remove $id }
 :foreach id in=[find where list="y_YouTube"] do={ remove $id }
 :foreach id in=[find where list="z_LE"] do={ remove $id }
@@ -197,20 +209,19 @@
 :if ([:len [find where list="g_Google" and address="216.73.80.0/20"]] = 0) do={ add list="g_Google" address=216.73.80.0/20 comment="managed-by=internet-mikrotik-ip-export;list=g_Google" }
 :if ([:len [find where list="g_Google" and address="216.239.32.0/19"]] = 0) do={ add list="g_Google" address=216.239.32.0/19 comment="managed-by=internet-mikrotik-ip-export;list=g_Google" }
 :if ([:len [find where list="g_Google" and address="216.252.220.0/22"]] = 0) do={ add list="g_Google" address=216.252.220.0/22 comment="managed-by=internet-mikrotik-ip-export;list=g_Google" }
-:if ([:len [find where list="i_GitHub_Copilot" and address="4.228.31.149/32"]] = 0) do={ add list="i_GitHub_Copilot" address=4.228.31.149/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
-:if ([:len [find where list="i_GitHub_Copilot" and address="4.228.31.150/32"]] = 0) do={ add list="i_GitHub_Copilot" address=4.228.31.150/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
-:if ([:len [find where list="i_GitHub_Copilot" and address="4.228.31.153/32"]] = 0) do={ add list="i_GitHub_Copilot" address=4.228.31.153/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
+:if ([:len [find where list="i_GitHub_Copilot" and address="4.249.131.160/32"]] = 0) do={ add list="i_GitHub_Copilot" address=4.249.131.160/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
 :if ([:len [find where list="i_GitHub_Copilot" and address="51.137.3.17/32"]] = 0) do={ add list="i_GitHub_Copilot" address=51.137.3.17/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
 :if ([:len [find where list="i_GitHub_Copilot" and address="140.82.112.17/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.112.17/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot;aggregated=2;source-count=2" }
 :if ([:len [find where list="i_GitHub_Copilot" and address="140.82.112.18/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.112.18/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot;aggregated=2;source-count=2" }
-:if ([:len [find where list="i_GitHub_Copilot" and address="140.82.112.22/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.112.22/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
+:if ([:len [find where list="i_GitHub_Copilot" and address="140.82.112.21/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.112.21/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
 :if ([:len [find where list="i_GitHub_Copilot" and address="140.82.112.29/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.112.29/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
 :if ([:len [find where list="i_GitHub_Copilot" and address="140.82.112.30/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.112.30/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
 :if ([:len [find where list="i_GitHub_Copilot" and address="140.82.113.17/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.113.17/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot;aggregated=2;source-count=2" }
 :if ([:len [find where list="i_GitHub_Copilot" and address="140.82.113.18/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.113.18/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot;aggregated=2;source-count=2" }
 :if ([:len [find where list="i_GitHub_Copilot" and address="140.82.113.29/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.113.29/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
 :if ([:len [find where list="i_GitHub_Copilot" and address="140.82.113.30/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.113.30/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
-:if ([:len [find where list="i_GitHub_Copilot" and address="140.82.114.4/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.114.4/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
+:if ([:len [find where list="i_GitHub_Copilot" and address="140.82.114.3/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.114.3/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot;aggregated=2;source-count=2" }
+:if ([:len [find where list="i_GitHub_Copilot" and address="140.82.114.6/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.114.6/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
 :if ([:len [find where list="i_GitHub_Copilot" and address="140.82.114.17/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.114.17/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot;aggregated=2;source-count=2" }
 :if ([:len [find where list="i_GitHub_Copilot" and address="140.82.114.18/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.114.18/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot;aggregated=2;source-count=2" }
 :if ([:len [find where list="i_GitHub_Copilot" and address="140.82.114.22/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.114.22/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
@@ -218,22 +229,20 @@
 :if ([:len [find where list="i_GitHub_Copilot" and address="140.82.114.30/32"]] = 0) do={ add list="i_GitHub_Copilot" address=140.82.114.30/32 comment="managed-by=internet-mikrotik-ip-export;list=i_GitHub_Copilot" }
 :if ([:len [find where list="i_VSCode_Ext" and address="13.107.226.44/32"]] = 0) do={ add list="i_VSCode_Ext" address=13.107.226.44/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=2;source-count=2" }
 :if ([:len [find where list="i_VSCode_Ext" and address="13.107.253.44/32"]] = 0) do={ add list="i_VSCode_Ext" address=13.107.253.44/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=2;source-count=2" }
-:if ([:len [find where list="i_VSCode_Ext" and address="23.2.61.246/32"]] = 0) do={ add list="i_VSCode_Ext" address=23.2.61.246/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
-:if ([:len [find where list="i_VSCode_Ext" and address="23.200.38.25/32"]] = 0) do={ add list="i_VSCode_Ext" address=23.200.38.25/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
-:if ([:len [find where list="i_VSCode_Ext" and address="23.200.38.43/32"]] = 0) do={ add list="i_VSCode_Ext" address=23.200.38.43/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="52.68.139.90/32"]] = 0) do={ add list="i_VSCode_Ext" address=52.68.139.90/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="54.150.227.95/32"]] = 0) do={ add list="i_VSCode_Ext" address=54.150.227.95/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="54.178.40.131/32"]] = 0) do={ add list="i_VSCode_Ext" address=54.178.40.131/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="150.171.73.16/32"]] = 0) do={ add list="i_VSCode_Ext" address=150.171.73.16/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=2;source-count=2" }
 :if ([:len [find where list="i_VSCode_Ext" and address="150.171.74.16/32"]] = 0) do={ add list="i_VSCode_Ext" address=150.171.74.16/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=2;source-count=2" }
-:if ([:len [find where list="i_VSCode_Ext" and address="150.171.110.137/32"]] = 0) do={ add list="i_VSCode_Ext" address=150.171.110.137/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
+:if ([:len [find where list="i_VSCode_Ext" and address="150.171.110.138/32"]] = 0) do={ add list="i_VSCode_Ext" address=150.171.110.138/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
+:if ([:len [find where list="i_VSCode_Ext" and address="184.28.183.253/32"]] = 0) do={ add list="i_VSCode_Ext" address=184.28.183.253/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="185.199.108.133/32"]] = 0) do={ add list="i_VSCode_Ext" address=185.199.108.133/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="185.199.109.133/32"]] = 0) do={ add list="i_VSCode_Ext" address=185.199.109.133/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="185.199.110.133/32"]] = 0) do={ add list="i_VSCode_Ext" address=185.199.110.133/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="185.199.111.133/32"]] = 0) do={ add list="i_VSCode_Ext" address=185.199.111.133/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="191.238.172.191/32"]] = 0) do={ add list="i_VSCode_Ext" address=191.238.172.191/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
-:if ([:len [find where list="i_VSCode_Ext" and address="199.232.210.172/32"]] = 0) do={ add list="i_VSCode_Ext" address=199.232.210.172/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=2;source-count=2" }
-:if ([:len [find where list="i_VSCode_Ext" and address="199.232.214.172/32"]] = 0) do={ add list="i_VSCode_Ext" address=199.232.214.172/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=2;source-count=2" }
+:if ([:len [find where list="i_VSCode_Ext" and address="199.232.210.172/32"]] = 0) do={ add list="i_VSCode_Ext" address=199.232.210.172/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=3;source-count=2" }
+:if ([:len [find where list="i_VSCode_Ext" and address="199.232.214.172/32"]] = 0) do={ add list="i_VSCode_Ext" address=199.232.214.172/32 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=3;source-count=2" }
 :if ([:len [find where list="i_chatgpt" and address="3.12.200.18/32"]] = 0) do={ add list="i_chatgpt" address=3.12.200.18/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="3.140.2.201/32"]] = 0) do={ add list="i_chatgpt" address=3.140.2.201/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="4.151.71.176/28"]] = 0) do={ add list="i_chatgpt" address=4.151.71.176/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
@@ -253,6 +262,7 @@
 :if ([:len [find where list="i_chatgpt" and address="4.245.198.13/32"]] = 0) do={ add list="i_chatgpt" address=4.245.198.13/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="8.6.112.0/24"]] = 0) do={ add list="i_chatgpt" address=8.6.112.0/24 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="8.47.69.0/24"]] = 0) do={ add list="i_chatgpt" address=8.47.69.0/24 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
+:if ([:len [find where list="i_chatgpt" and address="9.160.163.224/28"]] = 0) do={ add list="i_chatgpt" address=9.160.163.224/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="12.129.184.64/26"]] = 0) do={ add list="i_chatgpt" address=12.129.184.64/26 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="13.65.138.96/27"]] = 0) do={ add list="i_chatgpt" address=13.65.138.96/27 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
 :if ([:len [find where list="i_chatgpt" and address="13.67.46.240/28"]] = 0) do={ add list="i_chatgpt" address=13.67.46.240/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
@@ -265,9 +275,7 @@
 :if ([:len [find where list="i_chatgpt" and address="13.76.116.80/28"]] = 0) do={ add list="i_chatgpt" address=13.76.116.80/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="13.79.43.0/28"]] = 0) do={ add list="i_chatgpt" address=13.79.43.0/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="13.83.237.176/28"]] = 0) do={ add list="i_chatgpt" address=13.83.237.176/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
-:if ([:len [find where list="i_chatgpt" and address="13.107.226.46/32"]] = 0) do={ add list="i_chatgpt" address=13.107.226.46/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="13.107.246.60/32"]] = 0) do={ add list="i_chatgpt" address=13.107.246.60/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
-:if ([:len [find where list="i_chatgpt" and address="13.107.253.46/32"]] = 0) do={ add list="i_chatgpt" address=13.107.253.46/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="13.223.161.115/32"]] = 0) do={ add list="i_chatgpt" address=13.223.161.115/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="18.66.147.17/32"]] = 0) do={ add list="i_chatgpt" address=18.66.147.17/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="18.66.147.35/32"]] = 0) do={ add list="i_chatgpt" address=18.66.147.35/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
@@ -303,6 +311,7 @@
 :if ([:len [find where list="i_chatgpt" and address="20.194.157.176/28"]] = 0) do={ add list="i_chatgpt" address=20.194.157.176/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="20.198.67.96/28"]] = 0) do={ add list="i_chatgpt" address=20.198.67.96/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="20.203.245.32/28"]] = 0) do={ add list="i_chatgpt" address=20.203.245.32/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
+:if ([:len [find where list="i_chatgpt" and address="20.206.107.192/28"]] = 0) do={ add list="i_chatgpt" address=20.206.107.192/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="20.210.154.128/28"]] = 0) do={ add list="i_chatgpt" address=20.210.154.128/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="20.210.174.208/28"]] = 0) do={ add list="i_chatgpt" address=20.210.174.208/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="20.215.187.208/28"]] = 0) do={ add list="i_chatgpt" address=20.215.187.208/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
@@ -421,14 +430,13 @@
 :if ([:len [find where list="i_chatgpt" and address="135.220.208.92/32"]] = 0) do={ add list="i_chatgpt" address=135.220.208.92/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="135.234.27.89/32"]] = 0) do={ add list="i_chatgpt" address=135.234.27.89/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="135.237.133.48/28"]] = 0) do={ add list="i_chatgpt" address=135.237.133.48/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
-:if ([:len [find where list="i_chatgpt" and address="135.237.133.112/28"]] = 0) do={ add list="i_chatgpt" address=135.237.133.112/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="137.135.183.96/28"]] = 0) do={ add list="i_chatgpt" address=137.135.183.96/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="137.135.191.176/28"]] = 0) do={ add list="i_chatgpt" address=137.135.191.176/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="142.250.186.115/32"]] = 0) do={ add list="i_chatgpt" address=142.250.186.115/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="148.76.185.195/32"]] = 0) do={ add list="i_chatgpt" address=148.76.185.195/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="148.76.185.196/31"]] = 0) do={ add list="i_chatgpt" address=148.76.185.196/31 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
-:if ([:len [find where list="i_chatgpt" and address="150.171.110.134/32"]] = 0) do={ add list="i_chatgpt" address=150.171.110.134/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
-:if ([:len [find where list="i_chatgpt" and address="150.171.110.137/32"]] = 0) do={ add list="i_chatgpt" address=150.171.110.137/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
+:if ([:len [find where list="i_chatgpt" and address="150.171.110.136/31"]] = 0) do={ add list="i_chatgpt" address=150.171.110.136/31 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
+:if ([:len [find where list="i_chatgpt" and address="150.171.110.138/32"]] = 0) do={ add list="i_chatgpt" address=150.171.110.138/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="162.159.140.0/24"]] = 0) do={ add list="i_chatgpt" address=162.159.140.0/24 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2;source-count=2" }
 :if ([:len [find where list="i_chatgpt" and address="167.234.250.108/32"]] = 0) do={ add list="i_chatgpt" address=167.234.250.108/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
 :if ([:len [find where list="i_chatgpt" and address="168.138.144.119/32"]] = 0) do={ add list="i_chatgpt" address=168.138.144.119/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
@@ -452,6 +460,7 @@
 :if ([:len [find where list="i_chatgpt" and address="172.183.143.224/28"]] = 0) do={ add list="i_chatgpt" address=172.183.143.224/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="172.191.70.179/32"]] = 0) do={ add list="i_chatgpt" address=172.191.70.179/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="172.191.238.68/32"]] = 0) do={ add list="i_chatgpt" address=172.191.238.68/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
+:if ([:len [find where list="i_chatgpt" and address="172.196.40.208/28"]] = 0) do={ add list="i_chatgpt" address=172.196.40.208/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="172.202.102.112/28"]] = 0) do={ add list="i_chatgpt" address=172.202.102.112/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="172.203.39.49/32"]] = 0) do={ add list="i_chatgpt" address=172.203.39.49/32 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="172.204.16.64/28"]] = 0) do={ add list="i_chatgpt" address=172.204.16.64/28 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
@@ -482,7 +491,7 @@
 :if ([:len [find where list="m_Meta" and address="57.141.0.0/20"]] = 0) do={ add list="m_Meta" address=57.141.0.0/20 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta;aggregated=29" }
 :if ([:len [find where list="m_Meta" and address="57.141.16.0/22"]] = 0) do={ add list="m_Meta" address=57.141.16.0/22 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta;aggregated=4" }
 :if ([:len [find where list="m_Meta" and address="57.141.20.0/23"]] = 0) do={ add list="m_Meta" address=57.141.20.0/23 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta;aggregated=2" }
-:if ([:len [find where list="m_Meta" and address="57.144.0.0/14"]] = 0) do={ add list="m_Meta" address=57.144.0.0/14 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta;aggregated=137" }
+:if ([:len [find where list="m_Meta" and address="57.144.0.0/14"]] = 0) do={ add list="m_Meta" address=57.144.0.0/14 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta;aggregated=139" }
 :if ([:len [find where list="m_Meta" and address="66.220.144.0/20"]] = 0) do={ add list="m_Meta" address=66.220.144.0/20 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta;aggregated=3" }
 :if ([:len [find where list="m_Meta" and address="69.63.176.0/20"]] = 0) do={ add list="m_Meta" address=69.63.176.0/20 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta;aggregated=4" }
 :if ([:len [find where list="m_Meta" and address="69.171.224.0/19"]] = 0) do={ add list="m_Meta" address=69.171.224.0/19 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta;aggregated=6" }
@@ -509,14 +518,41 @@
 :if ([:len [find where list="m_tmbd" and address="3.174.230.123/32"]] = 0) do={ add list="m_tmbd" address=3.174.230.123/32 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
 :if ([:len [find where list="m_tmbd" and address="3.174.230.128/32"]] = 0) do={ add list="m_tmbd" address=3.174.230.128/32 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd;aggregated=2;source-count=2" }
 :if ([:len [find where list="m_tmbd" and address="18.66.233.6/31"]] = 0) do={ add list="m_tmbd" address=18.66.233.6/31 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd;aggregated=4;source-count=2" }
-:if ([:len [find where list="m_tmbd" and address="18.66.233.12/32"]] = 0) do={ add list="m_tmbd" address=18.66.233.12/32 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
 :if ([:len [find where list="m_tmbd" and address="18.66.233.63/32"]] = 0) do={ add list="m_tmbd" address=18.66.233.63/32 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd;aggregated=2;source-count=2" }
-:if ([:len [find where list="m_tmbd" and address="18.66.233.66/31"]] = 0) do={ add list="m_tmbd" address=18.66.233.66/31 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd;aggregated=2" }
 :if ([:len [find where list="m_tmbd" and address="18.66.233.94/32"]] = 0) do={ add list="m_tmbd" address=18.66.233.94/32 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd;aggregated=2;source-count=2" }
-:if ([:len [find where list="m_tmbd" and address="18.66.233.121/32"]] = 0) do={ add list="m_tmbd" address=18.66.233.121/32 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
 :if ([:len [find where list="m_tmbd" and address="152.233.22.97/32"]] = 0) do={ add list="m_tmbd" address=152.233.22.97/32 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="152.233.22.98/32"]] = 0) do={ add list="m_tmbd" address=152.233.22.98/32 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="212.92.105.228/32"]] = 0) do={ add list="m_tmbd" address=212.92.105.228/32 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="156.146.43.65/32"]] = 0) do={ add list="m_tmbd" address=156.146.43.65/32 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd;aggregated=2;source-count=2" }
+:if ([:len [find where list="m_tmbd" and address="212.92.105.232/32"]] = 0) do={ add list="m_tmbd" address=212.92.105.232/32 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="t_Torrents" and address="46.19.139.195/32"]] = 0) do={ add list="t_Torrents" address=46.19.139.195/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=2;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="87.245.192.10/32"]] = 0) do={ add list="t_Torrents" address=87.245.192.10/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=2;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="104.21.17.86/32"]] = 0) do={ add list="t_Torrents" address=104.21.17.86/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=3;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="104.21.32.39/32"]] = 0) do={ add list="t_Torrents" address=104.21.32.39/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=3;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="104.21.40.193/32"]] = 0) do={ add list="t_Torrents" address=104.21.40.193/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=2;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="104.21.45.102/32"]] = 0) do={ add list="t_Torrents" address=104.21.45.102/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="104.21.50.150/32"]] = 0) do={ add list="t_Torrents" address=104.21.50.150/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="104.21.68.109/32"]] = 0) do={ add list="t_Torrents" address=104.21.68.109/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="104.21.82.15/32"]] = 0) do={ add list="t_Torrents" address=104.21.82.15/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="104.26.8.45/32"]] = 0) do={ add list="t_Torrents" address=104.26.8.45/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="104.26.9.45/32"]] = 0) do={ add list="t_Torrents" address=104.26.9.45/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="104.26.10.83/32"]] = 0) do={ add list="t_Torrents" address=104.26.10.83/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="104.26.11.83/32"]] = 0) do={ add list="t_Torrents" address=104.26.11.83/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="162.159.136.6/32"]] = 0) do={ add list="t_Torrents" address=162.159.136.6/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=2;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="162.159.137.6/32"]] = 0) do={ add list="t_Torrents" address=162.159.137.6/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=2;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="172.67.68.124/32"]] = 0) do={ add list="t_Torrents" address=172.67.68.124/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="172.67.74.109/32"]] = 0) do={ add list="t_Torrents" address=172.67.74.109/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="172.67.163.237/32"]] = 0) do={ add list="t_Torrents" address=172.67.163.237/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="172.67.175.99/32"]] = 0) do={ add list="t_Torrents" address=172.67.175.99/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=3;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="172.67.182.196/32"]] = 0) do={ add list="t_Torrents" address=172.67.182.196/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=3;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="172.67.188.67/32"]] = 0) do={ add list="t_Torrents" address=172.67.188.67/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=2;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="172.67.193.81/32"]] = 0) do={ add list="t_Torrents" address=172.67.193.81/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="172.67.194.150/32"]] = 0) do={ add list="t_Torrents" address=172.67.194.150/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="172.67.213.35/32"]] = 0) do={ add list="t_Torrents" address=172.67.213.35/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="186.2.163.20/32"]] = 0) do={ add list="t_Torrents" address=186.2.163.20/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="188.114.96.11/32"]] = 0) do={ add list="t_Torrents" address=188.114.96.11/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=11;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="188.114.97.11/32"]] = 0) do={ add list="t_Torrents" address=188.114.97.11/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=11;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="190.115.31.179/32"]] = 0) do={ add list="t_Torrents" address=190.115.31.179/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="193.46.255.29/32"]] = 0) do={ add list="t_Torrents" address=193.46.255.29/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=3;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="198.251.89.38/32"]] = 0) do={ add list="t_Torrents" address=198.251.89.38/32 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
 :if ([:len [find where list="t_telegram" and address="5.28.192.0/18"]] = 0) do={ add list="t_telegram" address=5.28.192.0/18 comment="managed-by=internet-mikrotik-ip-export;list=t_telegram" }
 :if ([:len [find where list="t_telegram" and address="91.105.192.0/23"]] = 0) do={ add list="t_telegram" address=91.105.192.0/23 comment="managed-by=internet-mikrotik-ip-export;list=t_telegram;aggregated=3;source-count=2" }
 :if ([:len [find where list="t_telegram" and address="91.108.4.0/22"]] = 0) do={ add list="t_telegram" address=91.108.4.0/22 comment="managed-by=internet-mikrotik-ip-export;list=t_telegram;aggregated=11;source-count=2" }
@@ -569,55 +605,26 @@
 :if ([:len [find where list="y_YouTube" and address="72.14.192.0/18"]] = 0) do={ add list="y_YouTube" address=72.14.192.0/18 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
 :if ([:len [find where list="y_YouTube" and address="74.125.0.0/16"]] = 0) do={ add list="y_YouTube" address=74.125.0.0/16 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
 :if ([:len [find where list="y_YouTube" and address="108.177.8.0/21"]] = 0) do={ add list="y_YouTube" address=108.177.8.0/21 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.91/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.91/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.93/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.93/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.95/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.95/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.99/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.99/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.103/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.103/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.104/31"]] = 0) do={ add list="y_YouTube" address=142.250.109.104/31 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.106/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.106/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.119/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.119/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.132/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.132/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.136/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.136/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.147/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.147/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.109.190/32"]] = 0) do={ add list="y_YouTube" address=142.250.109.190/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.91/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.91/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=7;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.93/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.93/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=7;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.95/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.95/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.100/31"]] = 0) do={ add list="y_YouTube" address=142.250.120.100/31 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.102/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.102/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.113/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.113/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.119/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.119/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.132/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.132/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.136/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.136/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=7;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.138/31"]] = 0) do={ add list="y_YouTube" address=142.250.120.138/31 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.120.190/32"]] = 0) do={ add list="y_YouTube" address=142.250.120.190/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=7;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.91/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.91/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.93/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.93/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.95/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.95/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.100/31"]] = 0) do={ add list="y_YouTube" address=142.250.130.100/31 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.102/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.102/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.113/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.113/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.119/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.119/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.132/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.132/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.136/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.136/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.138/31"]] = 0) do={ add list="y_YouTube" address=142.250.130.138/31 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="142.250.130.190/32"]] = 0) do={ add list="y_YouTube" address=142.250.130.190/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.91/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.91/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.93/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.93/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.95/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.95/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.119/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.119/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.132/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.132/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.136/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.136/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="142.251.98.190/32"]] = 0) do={ add list="y_YouTube" address=142.251.98.190/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=4;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="172.217.0.0/16"]] = 0) do={ add list="y_YouTube" address=172.217.0.0/16 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.38.129/32"]] = 0) do={ add list="y_YouTube" address=142.251.38.129/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.38.138/32"]] = 0) do={ add list="y_YouTube" address=142.251.38.138/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="142.251.38.142/32"]] = 0) do={ add list="y_YouTube" address=142.251.38.142/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=6;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="142.251.38.150/32"]] = 0) do={ add list="y_YouTube" address=142.251.38.150/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.141.161/32"]] = 0) do={ add list="y_YouTube" address=142.251.141.161/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.141.170/32"]] = 0) do={ add list="y_YouTube" address=142.251.141.170/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="142.251.141.174/32"]] = 0) do={ add list="y_YouTube" address=142.251.141.174/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=6;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="142.251.141.182/32"]] = 0) do={ add list="y_YouTube" address=142.251.141.182/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.209.1/32"]] = 0) do={ add list="y_YouTube" address=142.251.209.1/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.209.4/32"]] = 0) do={ add list="y_YouTube" address=142.251.209.4/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="142.251.209.10/32"]] = 0) do={ add list="y_YouTube" address=142.251.209.10/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="142.251.209.14/32"]] = 0) do={ add list="y_YouTube" address=142.251.209.14/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=5;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="142.251.209.22/32"]] = 0) do={ add list="y_YouTube" address=142.251.209.22/32 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="172.217.0.0/16"]] = 0) do={ add list="y_YouTube" address=172.217.0.0/16 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=8;source-count=3" }
 :if ([:len [find where list="y_YouTube" and address="173.194.0.0/16"]] = 0) do={ add list="y_YouTube" address=173.194.0.0/16 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
 :if ([:len [find where list="y_YouTube" and address="209.85.128.0/17"]] = 0) do={ add list="y_YouTube" address=209.85.128.0/17 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
 :if ([:len [find where list="y_YouTube" and address="216.58.192.0/19"]] = 0) do={ add list="y_YouTube" address=216.58.192.0/19 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
 :if ([:len [find where list="y_YouTube" and address="216.239.32.0/19"]] = 0) do={ add list="y_YouTube" address=216.239.32.0/19 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=9;source-count=3" }
-:if ([:len [find where list="z_LE" and address="13.215.239.219/32"]] = 0) do={ add list="z_LE" address=13.215.239.219/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }
 :if ([:len [find where list="z_LE" and address="35.157.26.135/32"]] = 0) do={ add list="z_LE" address=35.157.26.135/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE;aggregated=4;source-count=2" }
-:if ([:len [find where list="z_LE" and address="52.74.6.109/32"]] = 0) do={ add list="z_LE" address=52.74.6.109/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }
+:if ([:len [find where list="z_LE" and address="54.232.119.62/32"]] = 0) do={ add list="z_LE" address=54.232.119.62/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }
 :if ([:len [find where list="z_LE" and address="63.176.8.218/32"]] = 0) do={ add list="z_LE" address=63.176.8.218/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE;aggregated=4;source-count=2" }
 :if ([:len [find where list="z_LE" and address="172.65.32.248/32"]] = 0) do={ add list="z_LE" address=172.65.32.248/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }
 :if ([:len [find where list="z_LE" and address="172.65.46.172/32"]] = 0) do={ add list="z_LE" address=172.65.46.172/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }
@@ -639,17 +646,18 @@
 :if ([:len [find where list="g_Google" and address="2c0f:fb50::/32"]] = 0) do={ add list="g_Google" address=2c0f:fb50::/32 comment="managed-by=internet-mikrotik-ip-export;list=g_Google" }
 :if ([:len [find where list="i_VSCode_Ext" and address="2603:1061:10::16/128"]] = 0) do={ add list="i_VSCode_Ext" address=2603:1061:10::16/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=2;source-count=2" }
 :if ([:len [find where list="i_VSCode_Ext" and address="2603:1061:10:1::16/128"]] = 0) do={ add list="i_VSCode_Ext" address=2603:1061:10:1::16/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=2;source-count=2" }
-:if ([:len [find where list="i_VSCode_Ext" and address="2603:1061:14:187::1/128"]] = 0) do={ add list="i_VSCode_Ext" address=2603:1061:14:187::1/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
+:if ([:len [find where list="i_VSCode_Ext" and address="2603:1061:14:81::1/128"]] = 0) do={ add list="i_VSCode_Ext" address=2603:1061:14:81::1/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="2606:50c0:8000::154/128"]] = 0) do={ add list="i_VSCode_Ext" address=2606:50c0:8000::154/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="2606:50c0:8001::154/128"]] = 0) do={ add list="i_VSCode_Ext" address=2606:50c0:8001::154/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="2606:50c0:8002::154/128"]] = 0) do={ add list="i_VSCode_Ext" address=2606:50c0:8002::154/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
 :if ([:len [find where list="i_VSCode_Ext" and address="2606:50c0:8003::154/128"]] = 0) do={ add list="i_VSCode_Ext" address=2606:50c0:8003::154/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
-:if ([:len [find where list="i_VSCode_Ext" and address="2a02:26f0:41:385::2c1a/128"]] = 0) do={ add list="i_VSCode_Ext" address=2a02:26f0:41:385::2c1a/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
-:if ([:len [find where list="i_VSCode_Ext" and address="2a02:26f0:41:388::2c1a/128"]] = 0) do={ add list="i_VSCode_Ext" address=2a02:26f0:41:388::2c1a/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
-:if ([:len [find where list="i_VSCode_Ext" and address="2a04:4e42:4e::684/128"]] = 0) do={ add list="i_VSCode_Ext" address=2a04:4e42:4e::684/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=3;source-count=2" }
-:if ([:len [find where list="i_VSCode_Ext" and address="2a04:4e42:4f::684/128"]] = 0) do={ add list="i_VSCode_Ext" address=2a04:4e42:4f::684/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=3;source-count=2" }
-:if ([:len [find where list="i_chatgpt" and address="2603:1061:14:187::1/128"]] = 0) do={ add list="i_chatgpt" address=2603:1061:14:187::1/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
-:if ([:len [find where list="i_chatgpt" and address="2603:1061:14:188::1/128"]] = 0) do={ add list="i_chatgpt" address=2603:1061:14:188::1/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
+:if ([:len [find where list="i_VSCode_Ext" and address="2a02:26f0:9500:10::b833:fcd2/127"]] = 0) do={ add list="i_VSCode_Ext" address=2a02:26f0:9500:10::b833:fcd2/127 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=2" }
+:if ([:len [find where list="i_VSCode_Ext" and address="2a02:26f0:fa00:58e::2c1a/128"]] = 0) do={ add list="i_VSCode_Ext" address=2a02:26f0:fa00:58e::2c1a/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
+:if ([:len [find where list="i_VSCode_Ext" and address="2a02:26f0:fa00:59e::2c1a/128"]] = 0) do={ add list="i_VSCode_Ext" address=2a02:26f0:fa00:59e::2c1a/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext" }
+:if ([:len [find where list="i_VSCode_Ext" and address="2a04:4e42:4e::684/128"]] = 0) do={ add list="i_VSCode_Ext" address=2a04:4e42:4e::684/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=2;source-count=2" }
+:if ([:len [find where list="i_VSCode_Ext" and address="2a04:4e42:4f::684/128"]] = 0) do={ add list="i_VSCode_Ext" address=2a04:4e42:4f::684/128 comment="managed-by=internet-mikrotik-ip-export;list=i_VSCode_Ext;aggregated=2;source-count=2" }
+:if ([:len [find where list="i_chatgpt" and address="2603:1061:14:185::1/128"]] = 0) do={ add list="i_chatgpt" address=2603:1061:14:185::1/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
+:if ([:len [find where list="i_chatgpt" and address="2603:1061:14:188::1/128"]] = 0) do={ add list="i_chatgpt" address=2603:1061:14:188::1/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt;aggregated=2" }
 :if ([:len [find where list="i_chatgpt" and address="2606:4700:4401::ac40:9034/128"]] = 0) do={ add list="i_chatgpt" address=2606:4700:4401::ac40:9034/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="2606:4700:4401::ac40:92c4/128"]] = 0) do={ add list="i_chatgpt" address=2606:4700:4401::ac40:92c4/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
 :if ([:len [find where list="i_chatgpt" and address="2606:4700:4402::6812:25e4/128"]] = 0) do={ add list="i_chatgpt" address=2606:4700:4402::6812:25e4/128 comment="managed-by=internet-mikrotik-ip-export;list=i_chatgpt" }
@@ -674,51 +682,77 @@
 :if ([:len [find where list="m_Meta" and address="2620:0:1c00::/40"]] = 0) do={ add list="m_Meta" address=2620:0:1c00::/40 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta;aggregated=3" }
 :if ([:len [find where list="m_Meta" and address="2806:1090:cbff::/48"]] = 0) do={ add list="m_Meta" address=2806:1090:cbff::/48 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta" }
 :if ([:len [find where list="m_Meta" and address="2806:10a0:cbff::/48"]] = 0) do={ add list="m_Meta" address=2806:10a0:cbff::/48 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta" }
-:if ([:len [find where list="m_Meta" and address="2a03:2880::/31"]] = 0) do={ add list="m_Meta" address=2a03:2880::/31 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta;aggregated=615" }
+:if ([:len [find where list="m_Meta" and address="2a03:2880::/31"]] = 0) do={ add list="m_Meta" address=2a03:2880::/31 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta;aggregated=617" }
 :if ([:len [find where list="m_Meta" and address="2a03:2887:ff2c::/47"]] = 0) do={ add list="m_Meta" address=2a03:2887:ff2c::/47 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta;aggregated=2" }
 :if ([:len [find where list="m_Meta" and address="2a03:83e0::/32"]] = 0) do={ add list="m_Meta" address=2a03:83e0::/32 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta" }
 :if ([:len [find where list="m_Meta" and address="2a10:f781:10:cee0::/64"]] = 0) do={ add list="m_Meta" address=2a10:f781:10:cee0::/64 comment="managed-by=internet-mikrotik-ip-export;list=m_Meta" }
-:if ([:len [find where list="m_tmbd" and address="2400:52e0:1500::1092:1/128"]] = 0) do={ add list="m_tmbd" address=2400:52e0:1500::1092:1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2400:52e0:1500::1094:1/128"]] = 0) do={ add list="m_tmbd" address=2400:52e0:1500::1094:1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2400:52e0:1a02::1210:1/128"]] = 0) do={ add list="m_tmbd" address=2400:52e0:1a02::1210:1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:c00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:c00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:1600:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:1600:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:2a00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:2a00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2400:52e0:1a02:2::1353:1/128"]] = 0) do={ add list="m_tmbd" address=2400:52e0:1a02:2::1353:1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2400:52e0:1a02:2::1355:1/128"]] = 0) do={ add list="m_tmbd" address=2400:52e0:1a02:2::1355:1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2400:52e0:1a02:2::1356:1/128"]] = 0) do={ add list="m_tmbd" address=2400:52e0:1a02:2::1356:1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:800:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:800:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
 :if ([:len [find where list="m_tmbd" and address="2600:9000:2435:3600:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:3600:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:4e00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:4e00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:3a00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:3a00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:4800:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:4800:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:6600:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:6600:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:6a00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:6a00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:6e00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:6e00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:7c00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:7c00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
 :if ([:len [find where list="m_tmbd" and address="2600:9000:2435:8600:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:8600:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:9400:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:9400:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:9600:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:9600:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:9800:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:9800:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:a400:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:a400:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:ba00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:ba00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:d400:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:d400:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd;aggregated=2;source-count=2" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:e800:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:e800:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:f200:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:f200:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:f600:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:f600:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:200:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:200:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:1e00:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:1e00:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd;aggregated=2;source-count=2" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:4400:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:4400:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:4600:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:4600:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:5200:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:5200:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:5e00:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:5e00:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:8600:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:8600:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:8e00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:8e00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:a000:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:a000:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:aa00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:aa00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:bc00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:bc00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:ca00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:ca00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:d400:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:d400:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:2435:fc00:c:174a:c400:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:2435:fc00:c:174a:c400:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:400:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:400:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:1e00:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:1e00:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:2800:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:2800:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:2a00:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:2a00:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:3600:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:3600:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:3800:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:3800:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:4a00:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:4a00:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:4c00:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:4c00:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:6e00:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:6e00:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
 :if ([:len [find where list="m_tmbd" and address="2600:9000:290c:8800:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:8800:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:8c00:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:8c00:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:9200:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:9200:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:9600:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:9600:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:ac00:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:ac00:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:9400:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:9400:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:a400:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:a400:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:b200:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:b200:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
 :if ([:len [find where list="m_tmbd" and address="2600:9000:290c:b600:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:b600:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:b800:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:b800:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:be00:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:be00:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
 :if ([:len [find where list="m_tmbd" and address="2600:9000:290c:c200:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:c200:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:c600:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:c600:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:c800:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:c800:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:c800:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:c800:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:cc00:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:cc00:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:cc00:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:cc00:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:ce00:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:ce00:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:e400:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:e400:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:ee00:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:ee00:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
-:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:f000:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:f000:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:c400:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:c400:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:ca00:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:ca00:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:d000:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:d000:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:d400:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:d400:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:de00:10:db24:6940:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:de00:10:db24:6940:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:ea00:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:ea00:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="m_tmbd" and address="2600:9000:290c:f800:e:5373:440:93a1/128"]] = 0) do={ add list="m_tmbd" address=2600:9000:290c:f800:e:5373:440:93a1/128 comment="managed-by=internet-mikrotik-ip-export;list=m_tmbd" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:7::a29f:8806/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:7::a29f:8806/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=2;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:7::a29f:8906/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:7::a29f:8906/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=2;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:20::681a:82d/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:20::681a:82d/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:20::681a:92d/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:20::681a:92d/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:20::681a:a53/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:20::681a:a53/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:20::681a:b53/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:20::681a:b53/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:20::ac43:447c/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:20::ac43:447c/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:20::ac43:4a6d/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:20::ac43:4a6d/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3030::ac43:a3ed/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3030::ac43:a3ed/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3030::ac43:c151/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3030::ac43:c151/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3031::6815:2027/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3031::6815:2027/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=3;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3031::ac43:c296/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3031::ac43:c296/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3032::ac43:bc43/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3032::ac43:bc43/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=2;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3032::ac43:d523/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3032::ac43:d523/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3033::6815:446d/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3033::6815:446d/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3034::6815:2d66/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3034::6815:2d66/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3034::ac43:b6c4/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3034::ac43:b6c4/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=3;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3035::6815:28c1/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3035::6815:28c1/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=2;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3035::6815:3296/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3035::6815:3296/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3035::ac43:af63/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3035::ac43:af63/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=3;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3036::6815:1156/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3036::6815:1156/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=3;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="2606:4700:3037::6815:520f/128"]] = 0) do={ add list="t_Torrents" address=2606:4700:3037::6815:520f/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents" }
+:if ([:len [find where list="t_Torrents" and address="2a06:98c1:3120::b/128"]] = 0) do={ add list="t_Torrents" address=2a06:98c1:3120::b/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=11;source-count=2" }
+:if ([:len [find where list="t_Torrents" and address="2a06:98c1:3121::b/128"]] = 0) do={ add list="t_Torrents" address=2a06:98c1:3121::b/128 comment="managed-by=internet-mikrotik-ip-export;list=t_Torrents;aggregated=11;source-count=2" }
 :if ([:len [find where list="t_telegram" and address="2001:67c:4e8::/48"]] = 0) do={ add list="t_telegram" address=2001:67c:4e8::/48 comment="managed-by=internet-mikrotik-ip-export;list=t_telegram;aggregated=19;source-count=4" }
 :if ([:len [find where list="t_telegram" and address="2001:b28:f23c::/47"]] = 0) do={ add list="t_telegram" address=2001:b28:f23c::/47 comment="managed-by=internet-mikrotik-ip-export;list=t_telegram;aggregated=6;source-count=2" }
 :if ([:len [find where list="t_telegram" and address="2001:b28:f23f::/48"]] = 0) do={ add list="t_telegram" address=2001:b28:f23f::/48 comment="managed-by=internet-mikrotik-ip-export;list=t_telegram;aggregated=3;source-count=2" }
@@ -732,45 +766,23 @@
 :if ([:len [find where list="y_YouTube" and address="2001:4860:4802:34::223/128"]] = 0) do={ add list="y_YouTube" address=2001:4860:4802:34::223/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
 :if ([:len [find where list="y_YouTube" and address="2001:4860:4802:36::223/128"]] = 0) do={ add list="y_YouTube" address=2001:4860:4802:36::223/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
 :if ([:len [find where list="y_YouTube" and address="2001:4860:4802:38::223/128"]] = 0) do={ add list="y_YouTube" address=2001:4860:4802:38::223/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::5b/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::5b/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::5d/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::5d/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::5f/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::5f/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::63/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::63/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::67/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::67/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::69/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::69/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::6a/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::6a/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::77/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::77/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::84/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::84/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::88/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::88/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:800::be/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:800::be/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::5b/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::5b/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::5d/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::5d/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::5f/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::5f/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::65/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::65/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::66/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::66/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::71/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::71/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::77/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::77/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::84/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::84/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::88/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::88/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::8b/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::8b/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:802::be/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:802::be/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::5b/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::5b/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::5d/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::5d/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::5f/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::5f/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::64/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::64/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::66/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::66/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::77/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::77/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::84/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::84/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::88/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::88/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::8a/127"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::8a/127 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:804::be/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:804::be/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::5b/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::5b/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::5d/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::5d/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::5f/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::5f/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::77/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::77/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::84/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::84/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::88/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::88/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
-:if ([:len [find where list="y_YouTube" and address="2a00:1450:4025:807::be/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4025:807::be/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:800::2001/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:800::2001/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:800::200a/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:800::200a/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:800::200e/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:800::200e/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=6;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:800::2016/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:800::2016/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:801::2001/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:801::2001/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:801::200a/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:801::200a/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:801::200e/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:801::200e/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=6;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:801::2016/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:801::2016/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80c::2001/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80c::2001/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80c::200a/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80c::200a/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80c::200e/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80c::200e/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=3" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80c::2016/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80c::2016/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80d::2001/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80d::2001/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80d::2004/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80d::2004/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80d::200a/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80d::200a/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=2;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80d::200e/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80d::200e/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube;aggregated=5;source-count=2" }
+:if ([:len [find where list="y_YouTube" and address="2a00:1450:4014:80d::2016/128"]] = 0) do={ add list="y_YouTube" address=2a00:1450:4014:80d::2016/128 comment="managed-by=internet-mikrotik-ip-export;list=y_YouTube" }
 :if ([:len [find where list="z_LE" and address="2600:1f1e:7c1:c300::258/128"]] = 0) do={ add list="z_LE" address=2600:1f1e:7c1:c300::258/128 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }
 :if ([:len [find where list="z_LE" and address="2606:4700:60:0:f41b:d4fe:4325:6026/128"]] = 0) do={ add list="z_LE" address=2606:4700:60:0:f41b:d4fe:4325:6026/128 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }
 :if ([:len [find where list="z_LE" and address="2606:4700:60:0:f53d:5624:85c7:3a2c/128"]] = 0) do={ add list="z_LE" address=2606:4700:60:0:f53d:5624:85c7:3a2c/128 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }

@@ -94,6 +94,29 @@ DEFAULT_VK_HOSTS = (
     "id.vk.com",
 )
 
+DEFAULT_TORRENTS_HOSTS = (
+    "yts.bz",
+    "1337x.to",
+    "nyaa.si",
+    "sukebei.nyaa.si",
+    "thepiratebay.org",
+    "fitgirl-repacks.site",
+    "ext.to",
+    "eztvx.to",
+    "limetorrents.lol",
+    "skidrowreloaded.com",
+    "rargb.to",
+    "rutracker.org",
+    "static.rutracker.cc",
+    "nnmclub.to",
+    "nnmstatic.win",
+    "rutor.info",
+    "kinozal.tv",
+    "tapochek.net",
+    "lostfilm.tv",
+    "lostfilm.info",
+)
+
 TELEGRAM_PROXY_CONFIG_URLS = (
     "https://core.telegram.org/getProxyConfig",
     "https://core.telegram.org/getProxyConfigV6",
@@ -171,6 +194,16 @@ VK_COMMUNITY_HOST_URLS = (
     "https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Ukraine/inside-raw.lst",
 )
 
+TORRENTS_SOURCE_URLS = (
+    "https://torrentfreak.com/top-torrent-sites/",
+    "https://rutracker.org/",
+    "https://nnmclub.to/",
+)
+TORRENTS_COMMUNITY_HOST_URLS = (
+    "https://gist.githubusercontent.com/themaximax/9d6d934ee49b8b089c527b9b22d161a4/raw",
+    "https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst",
+)
+
 META_HELP_URL = "https://www.facebook.com/help/278069664862989"
 
 LEGACY_ARG_ALIASES = {
@@ -200,6 +233,8 @@ LEGACY_ARG_ALIASES = {
     "-VSCodeExtensionsIPv6ListName": "--vscode-extensions-ipv6-list-name",
     "-VkIPv4ListName": "--vk-ipv4-list-name",
     "-VkIPv6ListName": "--vk-ipv6-list-name",
+    "-TorrentsIPv4ListName": "--torrents-ipv4-list-name",
+    "-TorrentsIPv6ListName": "--torrents-ipv6-list-name",
     "-MetaAsns": "--meta-asns",
     "-MetaWhoisServer": "--meta-whois-server",
     "-SkipMeta": "--skip-meta",
@@ -211,6 +246,7 @@ LEGACY_ARG_ALIASES = {
     "-SkipGitHubCopilot": "--skip-github-copilot",
     "-SkipVSCodeExtensions": "--skip-vscode-extensions",
     "-SkipVk": "--skip-vk",
+    "-SkipTorrents": "--skip-torrents",
     "-IncludeIPv4": "--include-ipv4",
     "-IncludeIPv6": "--include-ipv6",
     "-SplitListBySource": "--split-list-by-source",
@@ -249,6 +285,7 @@ SUMMARY_PROVIDERS = (
     ("GitHubCopilot", "github_copilot"),
     ("VSCodeExt", "vscode_extensions"),
     ("Vk", "vk"),
+    ("Torrents", "torrents"),
 )
 
 EntryT = TypeVar("EntryT", RawEntry, FinalEntry)
@@ -404,6 +441,31 @@ def get_default_service_config() -> dict:
                     r"(^|\.)mail\.ru$",
                 ],
             },
+            "torrents": {
+                "hosts": list(DEFAULT_TORRENTS_HOSTS),
+                "source_urls": list(TORRENTS_SOURCE_URLS),
+                "community_host_urls": list(TORRENTS_COMMUNITY_HOST_URLS),
+                "community_host_allow_patterns": [
+                    r"(^|\.)yts\.bz$",
+                    r"(^|\.)1337x\.to$",
+                    r"(^|\.)nyaa\.si$",
+                    r"(^|\.)thepiratebay\.org$",
+                    r"(^|\.)fitgirl-repacks\.site$",
+                    r"(^|\.)ext\.to$",
+                    r"(^|\.)eztvx\.to$",
+                    r"(^|\.)limetorrents\.lol$",
+                    r"(^|\.)skidrowreloaded\.com$",
+                    r"(^|\.)rargb\.to$",
+                    r"(^|\.)rutracker\.org$",
+                    r"^static\.rutracker\.cc$",
+                    r"(^|\.)nnmclub\.to$",
+                    r"(^|\.)nnmstatic\.win$",
+                    r"(^|\.)rutor\.info$",
+                    r"(^|\.)kinozal\.tv$",
+                    r"(^|\.)tapochek\.net$",
+                    r"(^|\.)lostfilm\.(tv|info|top)$",
+                ],
+            },
         },
     }
 
@@ -448,7 +510,17 @@ def load_service_config(path: Path) -> dict:
         raise RuntimeError(f"Поле services в {path} должно быть JSON-объектом.")
 
     validated_services: dict[str, dict[str, object]] = {}
-    required_services = ("le", "tmdb", "telegram", "youtube", "chatgpt", "github_copilot", "vscode_extensions", "vk")
+    required_services = (
+        "le",
+        "tmdb",
+        "telegram",
+        "youtube",
+        "chatgpt",
+        "github_copilot",
+        "vscode_extensions",
+        "vk",
+        "torrents",
+    )
     for service_name in required_services:
         profile = services.get(service_name)
         if not isinstance(profile, dict):
@@ -1343,6 +1415,35 @@ def get_service_entries(args: argparse.Namespace) -> tuple[list[RawEntry], list[
         for url in profile["source_urls"]:
             header_lines.append(f"# VK source: {url}")
 
+    if not args.skip_torrents:
+        profile = profiles["torrents"]
+        append_profile_community_sources(
+            entries=entries,
+            header_lines=header_lines,
+            profile=profile,
+            provider="torrents",
+            list_name_v4=args.torrents_ipv4_list_name,
+            list_name_v6=args.torrents_ipv6_list_name,
+            resolver_url=resolver_url,
+            want_ipv4=args.include_ipv4,
+            want_ipv6=args.include_ipv6,
+        )
+        entries.extend(
+            resolve_dns_profile(
+                provider="torrents",
+                source="torrents_dns",
+                hosts=profile["hosts"],
+                resolver_url=resolver_url,
+                list_name_v4=args.torrents_ipv4_list_name,
+                list_name_v6=args.torrents_ipv6_list_name,
+                want_ipv4=args.include_ipv4,
+                want_ipv6=args.include_ipv6,
+            )
+        )
+        header_lines.append("# Torrents hosts: " + ", ".join(profile["hosts"]))
+        for url in profile["source_urls"]:
+            header_lines.append(f"# Torrents source: {url}")
+
     return entries, header_lines
 
 
@@ -1544,6 +1645,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--vscode-extensions-ipv6-list-name", default="i_VSCode_Ext")
     parser.add_argument("--vk-ipv4-list-name", default="v_VK")
     parser.add_argument("--vk-ipv6-list-name", default="v_VK")
+    parser.add_argument("--torrents-ipv4-list-name", default="t_Torrents")
+    parser.add_argument("--torrents-ipv6-list-name", default="t_Torrents")
     parser.add_argument("--meta-asns", nargs="+", default=["AS32934"])
     parser.add_argument("--meta-whois-server", default="whois.radb.net")
     parser.add_argument("--cloud-scopes", nargs="+")
@@ -1556,6 +1659,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--skip-github-copilot", action="store_true")
     parser.add_argument("--skip-vscode-extensions", action="store_true")
     parser.add_argument("--skip-vk", action="store_true")
+    parser.add_argument("--skip-torrents", action="store_true")
     parser.add_argument("--include-ipv4", action="store_true")
     parser.add_argument("--include-ipv6", action="store_true")
     parser.add_argument("--split-list-by-source", action="store_true")

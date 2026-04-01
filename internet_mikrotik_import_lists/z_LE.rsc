@@ -1,19 +1,19 @@
 # Internet service IP ranges export for MikroTik
-# Generated at: 2026-03-23 01:00:28+03:00
+# Generated at: 2026-04-01 02:08:38+03:00
 # Output mode: per-list:z_LE
-# Optimization raw-prefixes: 23
-# Optimization final-prefixes: 10
+# Optimization raw-prefixes: 22
+# Optimization final-prefixes: 9
 # Optimization saved-prefixes: 13
 # Google source goog: https://www.gstatic.com/ipranges/goog.json
-# Google source goog creationTime: 2026-03-22T13:04:06.162099
-# Google source goog syncToken: 1774209846162
+# Google source goog creationTime: 2026-03-31T13:08:13.38782
+# Google source goog syncToken: 1774987693387
 # Google source cloud: https://www.gstatic.com/ipranges/cloud.json
-# Google source cloud creationTime: 2026-03-22T13:04:06.162099
-# Google source cloud syncToken: 1774209846162
+# Google source cloud creationTime: 2026-03-31T13:08:13.38782
+# Google source cloud syncToken: 1774987693387
 # Meta help: https://www.facebook.com/help/278069664862989
 # Meta whois server: whois.radb.net
 # Meta ASN query: AS32934
-# Meta retrieved at: 2026-03-23 00:57:43+03:00
+# Meta retrieved at: 2026-04-01 02:05:44+03:00
 # DNS over HTTPS resolver: https://dns.google/resolve
 # le host source: https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/letsencrypt
 # le host extracted-hosts: 3
@@ -51,7 +51,7 @@
 # chatgpt host extracted-hosts: 13
 # chatgpt host filters: (^|\.)chat\.com$, (^|\.)chatgpt\.com$, (^|\.)openai\.com$, (^|\.)oaistatic\.com$, (^|\.)oaiusercontent\.com$, (^|\.)sora\.com$, (^|\.)azureedge\.net$, (^|\.)azurefd\.net$, (^|\.)blob\.core\.windows\.net$, (^|\.)livekit\.cloud$
 # ChatGPT connectors source: https://openai.com/chatgpt-connectors.json
-# ChatGPT connectors creationTime: 2026-03-17T22:13:02.191285
+# ChatGPT connectors creationTime: 2026-03-25T00:52:28.451252
 # ChatGPT hosts: chatgpt.com, chat.openai.com, openai.com, api.openai.com, auth.openai.com, setup.auth.openai.com, oaistatic.com, files.oaiusercontent.com, android.chat.openai.com, ios.chat.openai.com
 # ChatGPT source: https://help.openai.com/en/articles/9247338-network-recommendations-for-chatgpt-errors-on-web-and-apps
 # github_copilot host source: https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/github-copilot
@@ -80,12 +80,21 @@
 # VK source: https://clips.vk.com
 # VK source: https://music.vk.com
 # VK source: https://id.vk.com
+# torrents host source: https://gist.githubusercontent.com/themaximax/9d6d934ee49b8b089c527b9b22d161a4/raw
+# torrents host extracted-hosts: 8
+# torrents host filters: (^|\.)yts\.bz$, (^|\.)1337x\.to$, (^|\.)nyaa\.si$, (^|\.)thepiratebay\.org$, (^|\.)fitgirl-repacks\.site$, (^|\.)ext\.to$, (^|\.)eztvx\.to$, (^|\.)limetorrents\.lol$, (^|\.)skidrowreloaded\.com$, (^|\.)rargb\.to$, (^|\.)rutracker\.org$, ^static\.rutracker\.cc$, (^|\.)nnmclub\.to$, (^|\.)nnmstatic\.win$, (^|\.)rutor\.info$, (^|\.)kinozal\.tv$, (^|\.)tapochek\.net$, (^|\.)lostfilm\.(tv|info|top)$
+# torrents host source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
+# torrents host extracted-hosts: 9
+# torrents host filters: (^|\.)yts\.bz$, (^|\.)1337x\.to$, (^|\.)nyaa\.si$, (^|\.)thepiratebay\.org$, (^|\.)fitgirl-repacks\.site$, (^|\.)ext\.to$, (^|\.)eztvx\.to$, (^|\.)limetorrents\.lol$, (^|\.)skidrowreloaded\.com$, (^|\.)rargb\.to$, (^|\.)rutracker\.org$, ^static\.rutracker\.cc$, (^|\.)nnmclub\.to$, (^|\.)nnmstatic\.win$, (^|\.)rutor\.info$, (^|\.)kinozal\.tv$, (^|\.)tapochek\.net$, (^|\.)lostfilm\.(tv|info|top)$
+# Torrents hosts: yts.bz, 1337x.to, nyaa.si, sukebei.nyaa.si, thepiratebay.org, fitgirl-repacks.site, ext.to, eztvx.to, limetorrents.lol, skidrowreloaded.com, rargb.to, rutracker.org, static.rutracker.cc, nnmclub.to, nnmstatic.win, rutor.info, kinozal.tv, tapochek.net, lostfilm.tv, lostfilm.info
+# Torrents source: https://torrentfreak.com/top-torrent-sites/
+# Torrents source: https://rutracker.org/
+# Torrents source: https://nnmclub.to/
 # Address-list file: z_LE
 /ip firewall address-list
 :foreach id in=[find where list="z_LE"] do={ remove $id }
-:if ([:len [find where list="z_LE" and address="13.215.239.219/32"]] = 0) do={ add list="z_LE" address=13.215.239.219/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }
 :if ([:len [find where list="z_LE" and address="35.157.26.135/32"]] = 0) do={ add list="z_LE" address=35.157.26.135/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE;aggregated=4;source-count=2" }
-:if ([:len [find where list="z_LE" and address="52.74.6.109/32"]] = 0) do={ add list="z_LE" address=52.74.6.109/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }
+:if ([:len [find where list="z_LE" and address="54.232.119.62/32"]] = 0) do={ add list="z_LE" address=54.232.119.62/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }
 :if ([:len [find where list="z_LE" and address="63.176.8.218/32"]] = 0) do={ add list="z_LE" address=63.176.8.218/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE;aggregated=4;source-count=2" }
 :if ([:len [find where list="z_LE" and address="172.65.32.248/32"]] = 0) do={ add list="z_LE" address=172.65.32.248/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }
 :if ([:len [find where list="z_LE" and address="172.65.46.172/32"]] = 0) do={ add list="z_LE" address=172.65.46.172/32 comment="managed-by=internet-mikrotik-ip-export;list=z_LE" }
